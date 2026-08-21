@@ -157,9 +157,15 @@
     </section>
 
     <!-- ===================== THE STORY =====================
-         The founder's own words. The frame is his: it began with his father,
-         and it is not only for his father. Do NOT add a fact about that
-         family that he has not written himself.
+         The founder's own words. Only two things here came from him: it began
+         with his father, and it is not only for his father. Everything else is
+         a draft written in his voice, and he replaces it.
+
+         The draft states no fact about his father — no cause, no date, no
+         diagnosis, no quotation. That is deliberate. Do NOT add one. The claims
+         about the market (the price, the months, the muscle signal) come from
+         myotriton-company/02_Market_Positioning.md and they are checkable; the
+         claims about a family are not, and they are not ours to make.
 
          The paragraph that names Siarhei Arefyev names a living person and a
          co-owner of the original IP. His spelling comes from
@@ -562,9 +568,12 @@
                 <label for="c-message">Message</label>
                 <textarea id="c-message" name="message" placeholder="What would you like to know, or to tell us?" required></textarea>
               </div>
+              <input type="checkbox" name="botcheck" tabindex="-1" aria-hidden="true"
+                     style="display:none" />
               <div class="form-foot">
                 <button class="btn btn-solid" type="submit">Send</button>
-                <p class="form-note" id="contact-status">This opens your email client.</p>
+                <p class="form-note" id="contact-status" role="status" aria-live="polite">A real
+                human reads every message.</p>
               </div>
             </form>
           </div>

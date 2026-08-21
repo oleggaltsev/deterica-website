@@ -31,7 +31,7 @@ Google Fonts.
 |---|---|
 | `index.html` | The whole page. One document, with anchors |
 | `styles.css` | The design system, in `:root` |
-| `script.js` | The navigation highlight, the video players, mobile navigation, scroll reveals, and the contact form |
+| `script.js` | The navigation highlight, the video players, mobile navigation, scroll reveals, and the contact form. It holds the Web3Forms key |
 | `assets/` | The images, the video posters, the app screenshot, and the QR placeholder |
 
 ### The navigation follows the reader
@@ -232,13 +232,34 @@ stretched vertically without it. The global `img` rule holds the fix.
 
 ## The form
 
-The contact form composes a `mailto:` link and opens the visitor's email client. No server,
-no endpoint, no third party. The address is one constant, `EMAIL`, at the top of
-`script.js`. An empty required field stops the submission and names the field. The body
-carries the label of each field, so the mail is readable.
+The contact form posts to **Web3Forms**, which delivers the message to the address on the
+account. The page stays a static file: no server of ours sits in the path. Delivery is
+confirmed working from a browser.
 
-To move to a real endpoint later, replace the body of `send()` with a `fetch`. Nothing else
-changes.
+Two constants at the top of `script.js` hold the wiring: `FORM_ENDPOINT` and `FORM_KEY`.
+
+**The access key is public.** It travels in `script.js` to every visitor's browser, and
+Web3Forms is built that way. The consequence is that anybody can post to the key, so the
+form carries a honeypot: `<input name="botcheck">`, hidden by `display:none`, which a
+person never sees and never ticks. Web3Forms drops any submission that arrives with it set.
+
+**A failed request does not lose the message.** On any error the status line offers the same
+message as a `mailto:` link, so the visitor sends it from their own client instead. The
+address for that path is the `EMAIL` constant, and it is also a plain link under the form.
+
+### Testing it
+
+Web3Forms accepts a submission only from the origin the form is registered for, which is
+`deterica.com`. Two consequences:
+
+- **A submission from `localhost` fails at CORS,** and `fetch` throws "Failed to fetch".
+  That is the registration, not a fault in the page. To test locally, add `localhost` to
+  the allowed addresses in the Web3Forms form settings.
+- **A submission from a server is refused** on the free plan: "This method is not allowed.
+  Use our API in client side." So `curl` cannot verify this form. Use a browser.
+
+An empty required field stops the submission and names the field, before any request goes
+out.
 
 ## Run it
 

@@ -157,43 +157,103 @@
     });
   });
 
-  /* ---- The forms ---- */
+  /* ---- The form ----
 
-  // The label of a field, for the body of the message.
+     The form posts to Web3Forms, which delivers the message to the address
+     the account holds. That keeps the page a static file: there is no server
+     of ours in the path.
+
+     Two things guard it.
+
+     The access key below is public, because it travels in this file to the
+     visitor's browser. Web3Forms is built that way. What it means is that
+     anybody can post to the key, so the form carries a honeypot: a checkbox
+     that CSS hides, which a person never sees and never ticks. Web3Forms
+     drops any submission that arrives with it set.
+
+     And a request can fail — a network, a blocker, a quota. When it does the
+     message is not lost: the status line offers the same message as a
+     `mailto:` link, so the visitor sends it from their own client instead. */
+
+  var FORM_ENDPOINT = "https://api.web3forms.com/submit";
+  var FORM_KEY = "6d3d1def-6cc5-476b-a4a0-654507904beb";
+
+  // The label of a field, so the message reads as prose and not as form data.
   function labelOf(field) {
     var el = field.form.querySelector('label[for="' + field.id + '"]');
     return el ? el.textContent.trim() : field.name;
   }
 
-  function send(form, subject, statusEl) {
-    var fields = form.querySelectorAll("input, select, textarea");
+  // Every field a person filled, in the order the form asks for them.
+  function readFields(form) {
+    var filled = [];
     var missing = null;
-    var lines = [];
-
-    fields.forEach(function (f) {
+    form.querySelectorAll("input, select, textarea").forEach(function (f) {
+      if (f.name === "botcheck") return;
       var value = f.value.trim();
       if (f.required && (!value || !f.checkValidity())) {
         if (!missing) missing = f;
         return;
       }
-      if (value) lines.push(labelOf(f) + ": " + value);
+      if (value) filled.push({ field: f, label: labelOf(f), value: value });
     });
+    return { filled: filled, missing: missing };
+  }
 
-    if (missing) {
-      statusEl.textContent = "Please complete: " + labelOf(missing) + ".";
-      statusEl.classList.remove("ok");
-      missing.focus();
+  function mailtoHref(subject, filled) {
+    var lines = filled.map(function (f) { return f.label + ": " + f.value; });
+    lines.push("", "-- Sent from " + window.location.hostname);
+    return "mailto:" + EMAIL +
+      "?subject=" + encodeURIComponent(subject) +
+      "&body=" + encodeURIComponent(lines.join("\n"));
+  }
+
+  function say(statusEl, text, ok) {
+    statusEl.textContent = text;
+    statusEl.classList.toggle("ok", !!ok);
+  }
+
+  // The recovery path. It offers the mail client; it does not hijack the page.
+  function offerMailClient(statusEl, subject, filled) {
+    statusEl.textContent = "That did not go through. ";
+    var a = document.createElement("a");
+    a.href = mailtoHref(subject, filled);
+    a.textContent = "Send it from your email client instead";
+    statusEl.appendChild(a);
+    statusEl.appendChild(document.createTextNode(", or write to " + EMAIL + "."));
+    statusEl.classList.remove("ok");
+  }
+
+  function send(form, subject, statusEl) {
+    var read = readFields(form);
+    if (read.missing) {
+      say(statusEl, "Please complete: " + labelOf(read.missing) + ".");
+      read.missing.focus();
       return;
     }
 
-    lines.push("", "-- Sent from " + window.location.hostname);
-    var href = "mailto:" + EMAIL +
-      "?subject=" + encodeURIComponent(subject) +
-      "&body=" + encodeURIComponent(lines.join("\n"));
+    var payload = { access_key: FORM_KEY, subject: subject, botcheck: "" };
+    read.filled.forEach(function (f) { payload[f.field.name] = f.value; });
+    // Web3Forms puts `from_name` in the From line of the mail it sends.
+    if (payload.name) payload.from_name = payload.name;
 
-    window.location.href = href;
-    statusEl.textContent = "Your email client is opening. If nothing happens, write to " + EMAIL + ".";
-    statusEl.classList.add("ok");
+    var button = form.querySelector('button[type="submit"]');
+    if (button) button.disabled = true;
+    say(statusEl, "Sending…");
+
+    fetch(FORM_ENDPOINT, {
+      method: "POST",
+      headers: { "Content-Type": "application/json", Accept: "application/json" },
+      body: JSON.stringify(payload)
+    })
+      .then(function (res) { return res.json().catch(function () { return {}; }); })
+      .then(function (data) {
+        if (!data || !data.success) throw new Error((data && data.message) || "rejected");
+        form.reset();
+        say(statusEl, "Thank you. The message is with us, and a real human reads every one.", true);
+      })
+      .catch(function () { offerMailClient(statusEl, subject, read.filled); })
+      .then(function () { if (button) button.disabled = false; });
   }
 
   function wire(formId, subject, statusId) {
