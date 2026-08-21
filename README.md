@@ -264,14 +264,15 @@ sections at zero opacity in the capture.
 
 1. Push these files to `main`.
 2. **Settings → Pages**, source `Deploy from a branch`, branch `main`, folder `/ (root)`.
-3. For a custom domain, add a `CNAME` file holding the domain and point the DNS at GitHub
-   Pages.
+3. The custom domain is already set: `CNAME` holds `deterica.com`. GitHub Pages reads that
+   file, so keep it in the repository root — a commit that drops it drops the domain.
 
 ## Before launch
 
 - [ ] Replace the story with the founder's own words.
-- [ ] Decide the domain. The site is written as Deterica, so `deterica.com` is the natural
-      root, and `genesis.deterica.com` works if the retail business keeps the root.
+- [x] The domain is decided. `CNAME` holds **deterica.com**, the root, which matches the
+      brand the page carries. Note what that means: the root no longer serves the retail
+      business, so nothing on the old listing-intelligence site is reachable there.
 - [ ] Settle the app's display name against this site — see the ⚠️ note above.
 - [ ] Fill the three placeholders as each becomes real.
 - [ ] Make `og:image` an absolute URL. A relative path does not work in a link preview.
