@@ -1,12 +1,20 @@
-/* Deterica — landing interactions */
+/* DETERICA — Genesis site interactions.
+   No dependency, no build step.
+
+   The two forms have no server. They compose a mailto: link and open the
+   visitor's email client. That works on a static host and it needs no
+   endpoint, no key, and no third party. Swap `send()` for a fetch to a real
+   endpoint when one exists — see README.md. */
 (function () {
   "use strict";
 
-  // Current year in footer
+  var EMAIL = "oleg@deterica.com";
+
+  /* ---- Year in the footer ---- */
   var yearEl = document.getElementById("year");
   if (yearEl) yearEl.textContent = new Date().getFullYear();
 
-  // Mobile nav toggle
+  /* ---- Mobile navigation ---- */
   var toggle = document.querySelector(".nav-toggle");
   var mobileNav = document.getElementById("mobile-nav");
   if (toggle && mobileNav) {
@@ -25,10 +33,70 @@
     });
   }
 
-  // Scroll reveal — tag sections, then observe
+  /* ---- Which section is the reader in ----
+
+     The header is sticky, so "the current section" is the one that covers the
+     line just under it. That is simpler than a distance-to-centre rule and it
+     agrees with what a reader sees: the heading under the header is the
+     heading they are reading. */
+  (function () {
+    var header = document.querySelector(".site-header");
+    var links = [];
+    document.querySelectorAll('.site-header a[href^="#"]').forEach(function (a) {
+      var id = a.getAttribute("href").slice(1);
+      // `#top` is the header itself, not a section to report.
+      if (id && id !== "top" && document.getElementById(id)) links.push({ a: a, id: id });
+    });
+    if (!links.length) return;
+
+    // One entry per target, in the order the page holds them.
+    var seen = {};
+    var targets = [];
+    links.forEach(function (l) {
+      if (seen[l.id]) return;
+      seen[l.id] = true;
+      targets.push(document.getElementById(l.id));
+    });
+    targets.sort(function (x, y) { return x.offsetTop - y.offsetTop; });
+
+    var current = null;
+    function paint(id) {
+      if (id === current) return;
+      current = id;
+      links.forEach(function (l) {
+        l.a.classList.toggle("is-active", l.id === id);
+      });
+    }
+
+    function spy() {
+      var line = (header ? header.getBoundingClientRect().height : 0) + 8;
+      var found = null;
+      for (var i = 0; i < targets.length; i++) {
+        var r = targets[i].getBoundingClientRect();
+        if (r.top <= line && r.bottom > line) found = targets[i].id;
+      }
+      // The last section can be shorter than the space under the fold, so it
+      // would never cross the line. At the foot of the page it wins.
+      if (!found &&
+          window.scrollY + window.innerHeight >= document.documentElement.scrollHeight - 4) {
+        found = targets[targets.length - 1].id;
+      }
+      paint(found);
+    }
+
+    // No rAF throttle. `spy()` reads nine rectangles, which costs less than
+    // the bookkeeping, and a frame-based throttle drops updates whenever the
+    // frame callback does not run.
+    window.addEventListener("scroll", spy, { passive: true });
+    window.addEventListener("resize", spy);
+    spy();
+  })();
+
+  /* ---- Scroll reveal ---- */
   var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   var targets = document.querySelectorAll(
-    ".prob, .feature, .step, .ba, .big-stats div, .company-copy, .company-media, .faq details, .section-title, .section-sub"
+    ".card, .step, .video-item, .status li, .faq-list details," +
+    " .form-card, .split > div, .split-media, .note, .download"
   );
   targets.forEach(function (el) { el.classList.add("reveal"); });
 
@@ -37,31 +105,106 @@
   } else {
     var io = new IntersectionObserver(function (entries) {
       entries.forEach(function (e) {
-        if (e.isIntersecting) {
-          var el = e.target;
-          var sibs = Array.prototype.indexOf.call(el.parentNode.children, el);
-          el.style.transitionDelay = Math.min(sibs * 70, 280) + "ms";
-          el.classList.add("in");
-          io.unobserve(el);
-        }
+        if (!e.isIntersecting) return;
+        var el = e.target;
+        var i = Array.prototype.indexOf.call(el.parentNode.children, el);
+        el.style.transitionDelay = Math.min(i * 70, 280) + "ms";
+        el.classList.add("in");
+        io.unobserve(el);
       });
-    }, { rootMargin: "0px 0px -8% 0px", threshold: 0.12 });
+    }, { rootMargin: "0px 0px -8% 0px", threshold: 0.1 });
     targets.forEach(function (el) { io.observe(el); });
   }
 
-  // Waitlist form (front-end only — wire to a real endpoint later)
-  window.Deterica = {
-    submitWaitlist: function (e) {
-      e.preventDefault();
-      var input = document.getElementById("email");
-      var status = document.getElementById("form-status");
-      if (input && status) {
-        status.textContent = "Thanks — you're on the list. We'll reach out as access opens.";
-        status.classList.add("ok");
-        input.value = "";
-        input.blur();
+  /* ---- Video: a poster becomes a player on the first click ----
+
+     The page ships no YouTube code. It loads the player only when somebody
+     asks for it, which keeps the page fast and sends nothing to YouTube
+     before then.
+
+     One caveat decides the two branches below. A YouTube embed refuses to
+     play when the page itself came from a `file://` URL: the player has no
+     origin to check and it reports "Error 153". So a page opened straight
+     from the disk opens the video on YouTube instead of failing in place.
+     Served over http or https, it plays inside the page. */
+  var canEmbed = /^https?:$/.test(window.location.protocol);
+
+  document.querySelectorAll(".video[data-yt]").forEach(function (tile) {
+    tile.addEventListener("click", function () {
+      var id = tile.getAttribute("data-yt");
+      if (!id) return;
+
+      if (!canEmbed) {
+        window.open("https://www.youtube.com/watch?v=" + id, "_blank", "noopener");
+        return;
       }
-      return false;
+      // The player is built once. A click on the player itself must not rebuild it.
+      if (tile.querySelector("iframe")) return;
+
+      var frame = document.createElement("iframe");
+      frame.src = "https://www.youtube-nocookie.com/embed/" + id +
+                  "?autoplay=1&rel=0&modestbranding=1";
+      frame.title = tile.getAttribute("aria-label") || "Video";
+      frame.allow = "accelerometer; autoplay; clipboard-write; encrypted-media;" +
+                    " gyroscope; picture-in-picture; web-share";
+      frame.referrerPolicy = "strict-origin-when-cross-origin";
+      frame.allowFullscreen = true;
+      tile.textContent = "";
+      tile.appendChild(frame);
+      // The box is no longer a control; it is the player.
+      tile.style.cursor = "default";
+      tile.removeAttribute("aria-label");
+    });
+  });
+
+  /* ---- The forms ---- */
+
+  // The label of a field, for the body of the message.
+  function labelOf(field) {
+    var el = field.form.querySelector('label[for="' + field.id + '"]');
+    return el ? el.textContent.trim() : field.name;
+  }
+
+  function send(form, subject, statusEl) {
+    var fields = form.querySelectorAll("input, select, textarea");
+    var missing = null;
+    var lines = [];
+
+    fields.forEach(function (f) {
+      var value = f.value.trim();
+      if (f.required && (!value || !f.checkValidity())) {
+        if (!missing) missing = f;
+        return;
+      }
+      if (value) lines.push(labelOf(f) + ": " + value);
+    });
+
+    if (missing) {
+      statusEl.textContent = "Please complete: " + labelOf(missing) + ".";
+      statusEl.classList.remove("ok");
+      missing.focus();
+      return;
     }
-  };
+
+    lines.push("", "-- Sent from " + window.location.hostname);
+    var href = "mailto:" + EMAIL +
+      "?subject=" + encodeURIComponent(subject) +
+      "&body=" + encodeURIComponent(lines.join("\n"));
+
+    window.location.href = href;
+    statusEl.textContent = "Your email client is opening. If nothing happens, write to " + EMAIL + ".";
+    statusEl.classList.add("ok");
+  }
+
+  function wire(formId, subject, statusId) {
+    var form = document.getElementById(formId);
+    var status = document.getElementById(statusId);
+    if (!form || !status) return;
+    form.addEventListener("submit", function (e) {
+      e.preventDefault();
+      send(form, subject, status);
+    });
+  }
+
+  wire("contact-form", "Genesis — enquiry from the website", "contact-status");
 })();
