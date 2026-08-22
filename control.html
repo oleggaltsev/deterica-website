@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The control — Deterica</title>
+  <meta name="description" content="The control method: the user moves the residual limb, a position sensor reads the angle, and the hand follows the calibrated range. No electrode and no muscle signal. What the project does and does not claim about EMG." />
+  <meta name="theme-color" content="#070A0F" />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="The control — Deterica" />
+  <meta property="og:description" content="The control method: the user moves the residual limb, a position sensor reads the angle, and the hand follows the calibrated range. No electrode and no muscle signal. What the project does and does not claim about EMG." />
+  <meta property="og:image" content="assets/hand-hero-alt.jpg" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet" />
+
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23070A0F'/%3E%3Cpath d='M9 23V9h6.5c4 0 6.5 2.8 6.5 7s-2.5 7-6.5 7H9zm4-3.4h2.2c1.8 0 2.8-1.3 2.8-3.6s-1-3.6-2.8-3.6H13v7.2z' fill='%2337C8BC'/%3E%3C/svg%3E" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <!-- The header. It is the same in every file; keep them in step. -->
+  <header class="site-header" id="top">
+    <div class="wrap header-inner">
+      <a class="brand" href="index.html" aria-label="Deterica home">
+        <svg class="brand-mark" width="30" height="30" viewBox="0 0 32 32" aria-hidden="true">
+          <rect width="32" height="32" rx="7" fill="#0D131B"/>
+          <path d="M9 23V9h6.5c4 0 6.5 2.8 6.5 7s-2.5 7-6.5 7H9zm4-3.4h2.2c1.8 0 2.8-1.3 2.8-3.6s-1-3.6-2.8-3.6H13v7.2z" fill="#37C8BC"/>
+        </svg>
+        <span class="brand-word">DETERICA</span>
+      </a>
+
+      <nav class="nav" aria-label="Primary">
+        <a class="is-active" href="control.html">The control</a>
+        <a href="kit.html">The Kit</a>
+        <a href="story.html">The story</a>
+      </nav>
+
+      <div class="header-cta">
+        <a class="btn btn-solid" href="contact.html">Contact</a>
+      </div>
+
+      <button class="nav-toggle" aria-expanded="false" aria-controls="mobile-nav" aria-label="Open menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+    <div class="mobile-nav" id="mobile-nav" hidden>
+      <a class="is-active" href="control.html">The control</a>
+      <a href="kit.html">The Kit</a>
+      <a href="story.html">The story</a>
+      <a class="btn btn-solid" href="contact.html">Contact</a>
+    </div>
+  </header>
+
+  <main>
+    <!-- ===================== PROBLEM ===================== -->
+    <section class="section" id="why">
+      <div class="wrap">
+        <p class="eyebrow center">The problem</p>
+        <h1 class="section-title center">EMG control is a load the user carries all day</h1>
+        <p class="section-sub center">
+          A myoelectric hand reads muscle signals through electrodes in the socket. The signal
+          works in a fitting room. It is harder to keep in a life.
+        </p>
+
+        <div class="grid-3">
+          <article class="card">
+            <p class="mono card-no">01 · Switching</p>
+            <h3>Slow, and mentally tiring</h3>
+            <p class="quote">
+              "Too slow, unreliable, unintuitive and mentally exhausting."
+            </p>
+            <p style="margin-top:.7rem">
+              That is how users of multi-function hands described grip switching by muscle
+              contraction in a 2019 study. Most of them used only two or three functions,
+              because more was confusing and hard to remember.
+            </p>
+          </article>
+          <article class="card">
+            <p class="mono card-no">02 · The signal</p>
+            <h3>It moves with the body</h3>
+            <p>
+              Temperature, humidity, sweat, socket displacement, and the weight of the arm all
+              change the signal. The result is a signal artefact, and an unintended movement of
+              the hand.
+            </p>
+          </article>
+          <article class="card">
+            <p class="mono card-no">03 · The training</p>
+            <h3>Long, and tiring</h3>
+            <p>
+              A user must learn to produce a contraction the electrodes can read, then keep it
+              repeatable. A user who cannot produce a stable signal has no path into a
+              multi-grip hand at all.
+            </p>
+          </article>
+        </div>
+
+        <div class="note">
+          <h3>What this project does not claim</h3>
+          <p>
+            The literature does not show that people abandon electric devices more often than
+            body-powered ones. For adults the rates are close: about 23 % for electric devices
+            against about 26 % for body-powered ones. Comfort, socket fit, and weight lead the
+            list of reasons, and price sits near the bottom.
+          </p>
+          <p>
+            So the claim here is narrow and it is the one the evidence supports: <strong>EMG
+            control is a documented problem of cognitive load and usability.</strong> This
+            control method removes that load. It does not, on its own, solve comfort, weight,
+            or socket fit.
+          </p>
+        </div>
+      </div>
+    </section>
+    <!-- ===================== HOW THE CONTROL WORKS ===================== -->
+    <section class="section dark" id="control">
+      <div class="wrap">
+        <p class="eyebrow light center">The control</p>
+        <h2 class="section-title center light">Movement in, position out</h2>
+        <p class="section-sub center light-sub">
+          The residual limb already moves. The method uses that movement directly, as a
+          position, and not as a signal that must be classified.
+        </p>
+
+        <!-- The chain, beside the hand it happens on. The list is short on purpose:
+             the four statements that follow it are a grid, not more column. -->
+        <div class="split split-media-wide">
+          <ul class="ticks ticks-lead">
+            <li><span class="tick">→</span><div>The user turns the residual limb inside the socket.</div></li>
+            <li><span class="tick">→</span><div>A position sensor measures the angle.</div></li>
+            <li><span class="tick">→</span><div>The calibration maps that angle onto the user's own range, from fully open to fully closed.</div></li>
+            <li><span class="tick">→</span><div>The hand holds the position the user gives it. Halfway is halfway.</div></li>
+            <li><span class="tick">→</span><div>Two buttons step through the grips. The change applies at once, and the fingers ease into the new shape.</div></li>
+          </ul>
+          <figure class="render split-media">
+            <img src="assets/hand-controls.jpg" alt="Close view of the back of the hand, showing the two control buttons, the power button, and the indicator light." width="1200" height="599" />
+            <figcaption>Two buttons, a power button, and one light</figcaption>
+          </figure>
+        </div>
+
+        <div class="grid-4">
+          <article class="card">
+            <h3>The user sets it up alone</h3>
+            <p>The calibration is two button holds on the hand. It needs no clinic visit, no
+            laptop, and no software that only a specialist can run. A user who changes their
+            mind holds the button again.</p>
+          </article>
+          <article class="card">
+            <h3>It is the user's colour</h3>
+            <p>The shell, the finger pads, and the buttons are each specified on their own. The
+            hand can be matched to a skin tone, or made to stand out on purpose.</p>
+          </article>
+          <article class="card">
+            <h3>It charges on the arm</h3>
+            <p>The hand runs on its own battery. An ordinary USB power bank tops that battery
+            up, and the user keeps the hand on while it charges.</p>
+          </article>
+          <article class="card">
+            <h3>Who the method fits</h3>
+            <p>It needs a preserved rotation of the residual limb. That is the eligibility
+            criterion, and it is the first question to put to a prosthetist.</p>
+          </article>
+        </div>
+
+        <ol class="steps">
+          <li class="step">
+            <span class="mono step-no">STEP 1</span>
+            <h3>Save the open position</h3>
+            <p>The user holds one button for 2 seconds at the position that means "fully open".</p>
+          </li>
+          <li class="step">
+            <span class="mono step-no">STEP 2</span>
+            <h3>Save the closed position</h3>
+            <p>The user holds the other button for 2 seconds at the position that means "fully closed".</p>
+          </li>
+          <li class="step">
+            <span class="mono step-no">STEP 3</span>
+            <h3>Move</h3>
+            <p>The two saved points become the whole range. The kit clamps anything outside them.</p>
+          </li>
+          <li class="step">
+            <span class="mono step-no">STEP 4</span>
+            <h3>Select a grip</h3>
+            <p>A short press steps forward or back through five grips. Nothing waits for a gate.</p>
+          </li>
+        </ol>
+      </div>
+    </section>
+    <!-- One video, and it is the one that proves this page. -->
+    <section class="section" id="video">
+      <div class="wrap">
+        <p class="eyebrow center">Video</p>
+        <h2 class="section-title center">Watch it move</h2>
+        <p class="section-sub center">
+          A control method is easy to describe and hard to believe. So here is the hand, doing
+          the thing this page says it does.
+        </p>
+        <div class="videos videos-one">
+          <figure class="video-item">
+            <button class="video" type="button" data-yt="-qElkciA-kw"
+                    aria-label="Play the video: how the control works">
+              <img src="assets/video-control.jpg" alt="" width="900" height="506" loading="lazy" />
+              <span class="play" aria-hidden="true"></span>
+            </button>
+            <figcaption>How the control works</figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- The footer. Also duplicated; keep it in step with the other files. -->
+  <footer class="site-footer">
+    <div class="wrap footer-grid">
+      <div class="footer-brand">
+        <a class="brand" href="index.html" aria-label="Deterica home">
+          <svg width="28" height="28" viewBox="0 0 32 32" aria-hidden="true">
+            <rect width="32" height="32" rx="7" fill="#151D28"/>
+            <path d="M9 23V9h6.5c4 0 6.5 2.8 6.5 7s-2.5 7-6.5 7H9zm4-3.4h2.2c1.8 0 2.8-1.3 2.8-3.6s-1-3.6-2.8-3.6H13v7.2z" fill="#37C8BC"/>
+          </svg>
+          <span class="brand-word">DETERICA</span>
+        </a>
+        <p class="footer-tag">
+          Prosthetic hand control that needs no electrodes. Built by DETERICA LLC,
+          Allen, Texas.
+        </p>
+      </div>
+      <nav class="footer-col" aria-label="Product">
+        <p class="footer-h mono">Product</p>
+        <a href="control.html">The control</a>
+        <a href="kit.html">The Deterica Kit</a>
+        <a href="kit.html#app">The app</a>
+      </nav>
+      <nav class="footer-col" aria-label="Company">
+        <p class="footer-h mono">Company</p>
+        <a href="story.html">Why this exists</a>
+        <a href="contact.html#faq">FAQ</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+      <div class="footer-col">
+        <p class="footer-h mono">Contact</p>
+        <a href="mailto:oleg@deterica.com">oleg@deterica.com</a>
+        <p class="footer-small">DETERICA LLC<br>Allen, Texas<br>United States</p>
+      </div>
+    </div>
+
+    <div class="wrap footer-legal">
+      <p>
+        <strong>Not a medical device.</strong> The Deterica Kit is a demonstration kit and a
+        training kit. It is not a medical device. Nothing on this site is a therapeutic,
+        rehabilitative, or diagnostic claim, and nothing here is advice on the choice of a
+        prosthesis. Speak to a prosthetist.
+      </p>
+      <p>
+        The images of the hand are CAD renders of its mechanical design. The hand is not a
+        product for sale today. The App Store link and the QR code on this site are
+        placeholders. Apple and App Store are trademarks of Apple Inc.
+      </p>
+    </div>
+
+    <div class="wrap footer-bottom">
+      <p class="mono">© <span id="year">2026</span> DETERICA LLC. All rights reserved.</p>
+      <p class="mono">Built in Texas.</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

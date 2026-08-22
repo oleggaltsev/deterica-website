@@ -1,26 +1,38 @@
-# Deterica — the Genesis website
+# Deterica — the website
 
 The public site for **Genesis**, the prosthetic hand of **DETERICA LLC**: a control method
-that needs no electrodes, and the **Genesis Developer Kit** that carries that control while
+that needs no electrodes, and the **Genesis Hand Kit** that carries that control while
 the hand is built.
 
-## The names, and which is which
+## The names
 
-| Name | What it is | Where it must match |
-|---|---|---|
-| **Deterica** | The company. DETERICA LLC, Texas. It owns the domain and the email | The brand word in the header and the footer |
-| **Genesis** | The hand, and the programme that builds it. A project name, not a registered mark | Section headings, the hero eyebrow, the mail subject in `script.js` |
-| **Genesis Developer Kit** | The desktop kit and the app together — the product that ships first | The `#kit` section |
-| **MYO TRITON** | The **earlier** name of the same work. It is no longer on the page | Nowhere. The four engineering repos still carry it in their names |
+**Deterica is the company and the brand. The products carry the house name and no
+sub-brand.**
 
-The bundle identifier of the app already carries this structure:
-`com.deterica.genesis.kit` — the company, the hand, then the kit.
+| Name | What it is |
+|---|---|
+| **Deterica** / DETERICA LLC | The company, Texas. It owns the domain and the email |
+| **The Deterica hand** | The prosthetic hand. In development |
+| **The Deterica Kit** | The desktop kit and the free app together. The product that ships first |
+| **Deterica Kit** | The name of the app under its icon, and `CFBundleDisplayName` in the simulator repository |
 
-⚠️ **One name does not match yet.** The app's display name in
-`myotriton/simulator/ios/App/project.yml` is `Simulator Kit`, and the Bluetooth permission
-string names it too. Change `CFBundleDisplayName` and
-`NSBluetoothAlwaysUsageDescription` there before the store listing opens, or the store and
-this site will disagree.
+⚠️ **Two names were dropped, and the reasons are worth keeping.**
+
+- **MYO TRITON** — the name of the same work until 2026-08-20. The four engineering repos
+  still carry it in their names.
+- **Genesis** — used for one day, on 2026-08-20, and dropped the same day. **Alt-Bionics
+  of San Antonio, Texas has sold a prosthetic hand called the "Genesis Hand" since
+  September 2024.** Same goods, same state, and we hold no registered mark. See question 17
+  in `myotriton-company/05_Open_Questions.md`.
+
+The bundle identifier changed with it, from `com.deterica.genesis.kit` to
+`com.deterica.kit`. **An identifier cannot change after the App Store Connect record
+exists**, and a record cannot be deleted, so a second record was created on 2026-08-22
+and the first one stays.
+
+**Do not invent a sub-brand for a product without a clearance search.** The Genesis episode
+cost one day. It would have cost a rebuild of the site, the app, and the packaging if it
+had been found later.
 
 ## Stack
 
@@ -64,26 +76,35 @@ words. Drop the two `hyphens` lines if you would rather have wide gaps than brok
 The pull quote in the first `#why` card stays ragged — stretching two lines of somebody's
 quotation reads as a mistake.
 
-## The page, in order
+## Five pages, and what each one is for
 
-| # | Section | What it does |
+The site was one page with ten sections. It became five pages on 2026-08-20, because the
+home page was carrying every topic at once and more were coming.
+
+| File | `h1` | Its job |
 |---|---|---|
-| 1 | Hero | The control in four sentences |
-| 2 | `#why` | EMG control as a documented load, plus the note that states what the project does **not** claim |
-| 3 | `#story` | The founder's own reason for building this, and the interview |
-| 4 | `#control` | The control chain, the four calibration steps, and the facts about the hand |
-| 5 | `#kit` | Where each part stands, and what the kit and the app are |
-| 6 | `#app` | One control logic, two places it can run. A real screenshot |
-| 7 | `#video` | Three recordings of the hand working |
-| 8 | `#get` | The two purchase placeholders, right before the questions |
-| 9 | `#faq` | Five questions |
-| 10 | `#contact` | One form, and the direct details |
+| `index.html` | The hand follows your own movement | **It routes.** One claim, the four statuses, three cards into the pages below, one CTA. It explains nothing |
+| `control.html` | EMG control is a load the user carries all day | The method. The problem, the honest note, the control chain, the four facts, the calibration steps, and the video that proves it |
+| `kit.html` | The Deterica Kit | The product that ships first. The kit and the app, a real screenshot, the two purchase placeholders, and the videos of the hand |
+| `story.html` | This did not begin as a business plan | The founder's reason, and the interview |
+| `contact.html` | Tell us we are wrong about something | The form, the details, and the FAQ |
 
-The dark and light surfaces alternate on purpose: paper, tint, dark, paper, dark, paper,
-dark, tint, dark. **A block that moves between surfaces needs its colours checked.** The
-copy in `#get` carried an inline `color: var(--text-soft)` while it lived in `#kit`, and
-that grey went unreadable the moment the block landed on ink. It is a `.download-lede`
-class now, with a `.dark` variant. Put no colour in a `style` attribute.
+**The rules this follows.** A home page routes; it does not carry every topic. One page
+holds one search intent, which reads better and ranks better than ten topics on one URL.
+One primary call to action per page. A video sits beside the claim it proves, and not in a
+gallery of its own.
+
+**Every page carries exactly one `h1`.** Check that when you add a page.
+
+### The cost of no build step
+
+There is no build step, so **the header and the footer are duplicated in all five files.**
+A change to either must be made five times. That is the price of a static site with no
+tooling, and at five pages it is the right trade.
+
+The navigation highlight is **not** a script any more. Each file writes `class="is-active"`
+on its own link. The scroll spy that did this on the single page was 59 lines; a class in
+the HTML is none.
 
 ## A title carries no full stop
 

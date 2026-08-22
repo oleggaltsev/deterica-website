@@ -3,13 +3,13 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Deterica — Prosthetic Hand Control Without Electrodes</title>
-  <meta name="description" content="Deterica builds prosthetic hand control that needs no electrodes and no muscle signal. The user moves the residual limb against the socket, and the hand follows a calibrated range. The Deterica Kit and a free app let you try the control model today." />
+  <title>Why this exists — Deterica</title>
+  <meta name="description" content="This did not begin as a business plan. It began with my father. Why Deterica set out to build prosthetic hand control that needs no electrodes." />
   <meta name="theme-color" content="#070A0F" />
 
   <meta property="og:type" content="website" />
-  <meta property="og:title" content="Deterica — Prosthetic Hand Control Without Electrodes" />
-  <meta property="og:description" content="Deterica builds prosthetic hand control that needs no electrodes and no muscle signal. The user moves the residual limb against the socket, and the hand follows a calibrated range. The Deterica Kit and a free app let you try the control model today." />
+  <meta property="og:title" content="Why this exists — Deterica" />
+  <meta property="og:description" content="This did not begin as a business plan. It began with my father. Why Deterica set out to build prosthetic hand control that needs no electrodes." />
   <meta property="og:image" content="assets/hand-hero-alt.jpg" />
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -34,7 +34,7 @@
       <nav class="nav" aria-label="Primary">
         <a href="control.html">The control</a>
         <a href="kit.html">The Kit</a>
-        <a href="story.html">The story</a>
+        <a class="is-active" href="story.html">The story</a>
       </nav>
 
       <div class="header-cta">
@@ -48,90 +48,64 @@
     <div class="mobile-nav" id="mobile-nav" hidden>
       <a href="control.html">The control</a>
       <a href="kit.html">The Kit</a>
-      <a href="story.html">The story</a>
+      <a class="is-active" href="story.html">The story</a>
       <a class="btn btn-solid" href="contact.html">Contact</a>
     </div>
   </header>
 
   <main>
-    <!-- ===================== HERO ===================== -->
-    <section class="hero">
-      <div class="hero-glow" aria-hidden="true"></div>
-      <div class="wrap hero-grid">
-        <div class="hero-copy">
-          <p class="eyebrow"><span class="dot"></span>Deterica · Prosthetic hand control · No electrodes</p>
-          <h1 class="display">
-            The hand follows<br>your <span class="accent">own movement</span>
-          </h1>
-          <p class="lede">
-            The user moves the residual limb against the socket. A position sensor reads the
-            movement. The hand follows the range the user calibrated. There is no electrode, no
-            muscle signal, and no training on a signal that drifts with sweat or with a socket
-            that shifts.
-          </p>
-          <div class="hero-actions">
-            <a class="btn btn-solid btn-lg" href="kit.html">See the Deterica Kit</a>
-          </div>
-        </div>
+    <!-- ===================== THE STORY =====================
+         The founder's own words. Only two things here came from him: it began
+         with his father, and it is not only for his father. Everything else is
+         a draft written in his voice, and he replaces it.
 
-        <figure class="render hero-render">
-          <img src="assets/hand-hero-alt.jpg" alt="The Deterica hand: a five-finger prosthetic hand, rendered from its mechanical design." width="1500" height="1067" />
-        </figure>
-      </div>
-    </section>
+         The draft states no fact about his father — no cause, no date, no
+         diagnosis, no quotation. That is deliberate. Do NOT add one. The claims
+         about the market (the price, the months, the muscle signal) come from
+         myotriton-company/02_Market_Positioning.md and they are checkable; the
+         claims about a family are not, and they are not ours to make.
 
-    <!-- Where each part stands, and the three doors. The home page does no
-         explaining: each card hands the reader to the page that does. -->
-    <section class="section" id="where">
+         The paragraph that names Siarhei Arefyev names a living person and a
+         co-owner of the original IP. His spelling comes from
+         myotriton-company/docs/ownership-cap-table.md. Do not publish it
+         until he has agreed to be named here. -->
+    <section class="section tint" id="story">
       <div class="wrap">
-        <p class="eyebrow center">Where this stands</p>
-        <h2 class="section-title center">Two parts work. Two are in development</h2>
-        <ul class="status">
-          <li>
-            <span class="mono state ready">Working</span>
-            <h3>The control</h3>
-            <p>The control logic runs, and a recorded trace holds it to its behaviour tick by tick.</p>
-          </li>
-          <li>
-            <span class="mono state ready">Working</span>
-            <h3>The app</h3>
-            <p>Built, and it runs with no kit. It is free, and the App Store listing opens with the release.</p>
-          </li>
-          <li>
-            <span class="mono state wip">In development</span>
-            <h3>The kit</h3>
-            <p>The mechanical part — the enclosure, the lever, and the moulds — is the work that sets the date.</p>
-          </li>
-          <li>
-            <span class="mono state wip">In development</span>
-            <h3>The hand</h3>
-            <p>Work continues on the mechanics the control moves. It is not for sale yet.</p>
-          </li>
-        </ul>
+        <div class="story">
+          <p class="eyebrow">Why this exists</p>
+          <h1 class="story-lead">This did not begin as a business plan. It began with my father</h1>
+          <p>
+            I went looking for a hand for him. What I found was a market where a good hand costs
+            more than a car, takes months to obtain, and then asks the user to learn a muscle
+            signal before it will move at all. For a lot of people that is not a choice between
+            devices. It is the difference between a hand and no hand.
+          </p>
+          <p>
+            So I set out to build the thing I could not buy: control that works from a movement
+            a person already has, and that the person can set up alone, at the kitchen table.
+          </p>
+          <p>
+            Somewhere along the way it stopped being only about him. The same wall stands in
+            front of everybody who has been told that a multi-grip hand is either unaffordable
+            or too hard to use. I would like to take that wall down for them too.
+          </p>
+          <p>
+            I do not build it alone. <strong>Siarhei Arefyev</strong> turned the control into
+            working hardware on the first hand, and he is working with me on this project.
+          </p>
+          <figure class="story-video">
+            <button class="video" type="button" data-yt="9EDitzRrm04"
+                    aria-label="Play the video: inside the lab, the interview">
+              <img src="assets/video-interview.jpg" alt="" width="900" height="506" loading="lazy" />
+              <span class="play" aria-hidden="true"></span>
+            </button>
+          </figure>
 
-        <div class="grid-3" style="margin-top:clamp(48px,6vw,80px)">
-          <article class="card">
-            <p class="mono card-no">01</p>
-            <h3>The control</h3>
-            <p>How a movement a person already has becomes a hand that follows. Why EMG is a load, and what this method does not claim.</p>
-            <p style="margin-top:1.1rem"><a class="card-link" href="control.html">Read the method &rarr;</a></p>
-          </article>
-          <article class="card">
-            <p class="mono card-no">02</p>
-            <h3>The Deterica Kit</h3>
-            <p>A desktop kit with a lever, and a free app that draws the hand the lever moves. The product that ships first.</p>
-            <p style="margin-top:1.1rem"><a class="card-link" href="kit.html">See the kit &rarr;</a></p>
-          </article>
-          <article class="card">
-            <p class="mono card-no">03</p>
-            <h3>Why this exists</h3>
-            <p>It began with my father. What I found in the market, and why I set out to build the thing I could not buy.</p>
-            <p style="margin-top:1.1rem"><a class="card-link" href="story.html">Read the story &rarr;</a></p>
-          </article>
+          <p class="story-sig mono">Oleg Haltsev · Founder, DETERICA LLC</p>
+
         </div>
       </div>
     </section>
-
   </main>
 
   <!-- The footer. Also duplicated; keep it in step with the other files. -->

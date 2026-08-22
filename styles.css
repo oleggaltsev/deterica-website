@@ -222,10 +222,10 @@ h1, h2, h3, h4 { font-family: var(--ff-display); letter-spacing: -.015em; }
   -webkit-mask-image: linear-gradient(to bottom, transparent 0, #000 7%);
   mask-image: linear-gradient(to bottom, transparent 0, #000 7%);
 }
-/* The render is scaled past its box on purpose: `.hero` clips it, and a
-   transform costs no layout, so the caption below keeps its place. */
-.hero-render img { transform: scale(1.24); }
-.hero-render figcaption { margin-top: 2.4rem; }
+/* A modest scale only. A transform costs no layout, so anything below it in
+   the column gets overlapped — which is why the hero render carries no caption.
+   Keep it that way, or drop the transform if a caption comes back. */
+.hero-render img { transform: scale(1.1); }
 .render figcaption {
   font-family: var(--ff-mono); font-size: .72rem; letter-spacing: .08em;
   text-transform: uppercase; color: var(--text-faint); margin-top: .6rem;
@@ -373,8 +373,9 @@ h1, h2, h3, h4 { font-family: var(--ff-display); letter-spacing: -.015em; }
 /* ---------- The founder's story ---------- */
 .story { max-width: 60ch; margin-inline: auto; }
 .story p { font-size: 1.06rem; color: var(--text-soft); margin: 0 0 1.1rem; }
-/* After `.story p`, and one class deeper: `.story p` would otherwise win. */
-.story p.story-lead {
+/* The lead is the h1 of the story page, so `.story p` does not reach it. The
+   selector stays class-only so it works either way. */
+.story .story-lead {
   font-family: var(--ff-display); font-weight: 600;
   font-size: clamp(1.5rem, 2.8vw, 2.1rem); line-height: 1.18;
   letter-spacing: -.015em; color: var(--text);
@@ -492,3 +493,19 @@ h1, h2, h3, h4 { font-family: var(--ff-display); letter-spacing: -.015em; }
 .reveal { opacity: 0; transform: translateY(14px); transition: opacity .6s ease, transform .6s ease; }
 .reveal.in { opacity: 1; transform: none; }
 @media (prefers-reduced-motion: reduce) { .reveal { opacity: 1; transform: none; transition: none; } }
+
+/* ---------- Multi-page chrome ---------- */
+/* The site has no build step, so every file carries its own header and footer.
+   `is-active` is written into the HTML per page; no script decides it. */
+.card-link {
+  color: var(--accent); font-weight: 600;
+  border-bottom: 1px solid rgba(14,154,144,.35); padding-bottom: 2px;
+}
+.card-link:hover { border-bottom-color: var(--accent); }
+.dark .card-link { color: var(--accent-br); border-bottom-color: rgba(55,200,188,.4); }
+
+/* A video row of one or two tiles stays the size of a tile, and does not
+   stretch to fill the width. */
+.videos-one { grid-template-columns: minmax(0, 620px); justify-content: center; }
+.videos-two { grid-template-columns: repeat(2, minmax(0,1fr)); }
+@media (max-width: 720px) { .videos-two { grid-template-columns: 1fr; max-width: 480px; margin-inline: auto; } }

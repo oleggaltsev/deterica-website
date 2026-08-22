@@ -33,64 +33,9 @@
     });
   }
 
-  /* ---- Which section is the reader in ----
-
-     The header is sticky, so "the current section" is the one that covers the
-     line just under it. That is simpler than a distance-to-centre rule and it
-     agrees with what a reader sees: the heading under the header is the
-     heading they are reading. */
-  (function () {
-    var header = document.querySelector(".site-header");
-    var links = [];
-    document.querySelectorAll('.site-header a[href^="#"]').forEach(function (a) {
-      var id = a.getAttribute("href").slice(1);
-      // `#top` is the header itself, not a section to report.
-      if (id && id !== "top" && document.getElementById(id)) links.push({ a: a, id: id });
-    });
-    if (!links.length) return;
-
-    // One entry per target, in the order the page holds them.
-    var seen = {};
-    var targets = [];
-    links.forEach(function (l) {
-      if (seen[l.id]) return;
-      seen[l.id] = true;
-      targets.push(document.getElementById(l.id));
-    });
-    targets.sort(function (x, y) { return x.offsetTop - y.offsetTop; });
-
-    var current = null;
-    function paint(id) {
-      if (id === current) return;
-      current = id;
-      links.forEach(function (l) {
-        l.a.classList.toggle("is-active", l.id === id);
-      });
-    }
-
-    function spy() {
-      var line = (header ? header.getBoundingClientRect().height : 0) + 8;
-      var found = null;
-      for (var i = 0; i < targets.length; i++) {
-        var r = targets[i].getBoundingClientRect();
-        if (r.top <= line && r.bottom > line) found = targets[i].id;
-      }
-      // The last section can be shorter than the space under the fold, so it
-      // would never cross the line. At the foot of the page it wins.
-      if (!found &&
-          window.scrollY + window.innerHeight >= document.documentElement.scrollHeight - 4) {
-        found = targets[targets.length - 1].id;
-      }
-      paint(found);
-    }
-
-    // No rAF throttle. `spy()` reads nine rectangles, which costs less than
-    // the bookkeeping, and a frame-based throttle drops updates whenever the
-    // frame callback does not run.
-    window.addEventListener("scroll", spy, { passive: true });
-    window.addEventListener("resize", spy);
-    spy();
-  })();
+  /* The navigation highlight is no longer a script. The site is five pages
+     now, and each file writes `is-active` on its own link. A scroll spy over
+     one long page was 59 lines; a class in the HTML is none. */
 
   /* ---- Scroll reveal ---- */
   var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
