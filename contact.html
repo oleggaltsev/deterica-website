@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact Deterica</title>
+  <meta name="description" content="Tell us we are wrong about something. Deterica is looking for prosthetists, clinicians, users, engineers, and investors who ask a hard question. DETERICA LLC, Allen, Texas." />
+  <meta name="theme-color" content="#070A0F" />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Contact Deterica" />
+  <meta property="og:description" content="Tell us we are wrong about something. Deterica is looking for prosthetists, clinicians, users, engineers, and investors who ask a hard question. DETERICA LLC, Allen, Texas." />
+  <meta property="og:image" content="assets/hand-hero-alt.jpg" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet" />
+
+  <link rel="icon" href="assets/brand/favicon-32.png" sizes="32x32" />
+  <link rel="icon" href="assets/brand/favicon.svg" type="image/svg+xml" />
+  <link rel="apple-touch-icon" href="assets/brand/apple-touch-icon.png" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <!-- The header. It is the same in every file; keep them in step. -->
+  <header class="site-header" id="top">
+    <div class="wrap header-inner">
+      <a class="brand" href="index.html" aria-label="Deterica home">
+        <img class="brand-logo" src="assets/brand/svg/wordmark-light.svg" width="157" height="20" alt="Deterica" />
+      </a>
+
+      <nav class="nav" aria-label="Primary">
+        <a href="index.html">Home</a>
+        <a href="control.html">The control</a>
+        <a href="kit.html">The Kit</a>
+        <a href="story.html">The story</a>
+        <a href="history.html">History</a>
+      </nav>
+
+      <div class="header-cta">
+        <a class="btn btn-solid is-active" href="contact.html">Contact</a>
+      </div>
+
+      <button class="nav-toggle" aria-expanded="false" aria-controls="mobile-nav" aria-label="Open menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+    <div class="mobile-nav" id="mobile-nav" hidden>
+      <a href="index.html">Home</a>
+      <a href="control.html">The control</a>
+      <a href="kit.html">The Kit</a>
+      <a href="story.html">The story</a>
+      <a href="history.html">History</a>
+      <a class="btn btn-solid" href="contact.html">Contact</a>
+    </div>
+  </header>
+
+  <main>
+    <!-- ===================== CONTACT ===================== -->
+    <section class="section dark" id="contact">
+      <div class="wrap">
+        <p class="eyebrow light">Contact</p>
+        <h1 class="section-title light">Tell us we are wrong about something</h1>
+        <p class="section-sub light-sub">
+          A prosthetist who has seen users abandon a device knows more than a roadmap does. So do
+          users, clinicians, engineers, and investors who ask a hard question. The form below
+          opens your email client, addressed to the founder.
+        </p>
+
+        <div class="forms">
+          <!-- General contact -->
+          <div class="form-card">
+            <h3>Get in touch</h3>
+            <p>A question, a partnership, an early look at the app, or a hard objection.</p>
+            <form id="contact-form" novalidate>
+              <div class="field">
+                <label for="c-name">Name</label>
+                <input id="c-name" name="name" type="text" placeholder="Your name" required autocomplete="name" />
+              </div>
+              <div class="field">
+                <label for="c-email">Email</label>
+                <input id="c-email" name="email" type="email" placeholder="you@example.com" required autocomplete="email" />
+              </div>
+              <div class="field">
+                <label for="c-role">I am a</label>
+                <select id="c-role" name="role">
+                  <option>Prosthetist or clinician</option>
+                  <option>A person with a limb difference</option>
+                  <option>Engineer or developer</option>
+                  <option>Researcher or educator</option>
+                  <option>Investor or partner</option>
+                  <option>Press</option>
+                  <option>Other</option>
+                </select>
+              </div>
+              <div class="field">
+                <label for="c-message">Message</label>
+                <textarea id="c-message" name="message" placeholder="What would you like to know, or to tell us?" required></textarea>
+              </div>
+              <input type="checkbox" name="botcheck" tabindex="-1" aria-hidden="true"
+                     style="display:none" />
+              <div class="form-foot">
+                <button class="btn btn-solid" type="submit">Send</button>
+                <p class="form-note" id="contact-status" role="status" aria-live="polite">A real
+                human reads every message.</p>
+              </div>
+            </form>
+          </div>
+
+        </div>
+
+        <div class="contact-direct">
+          <div>
+            <p class="k mono">Email</p>
+            <p><a class="v" href="mailto:oleg@deterica.com">oleg@deterica.com</a></p>
+          </div>
+          <div>
+            <p class="k mono">Company</p>
+            <p class="v">DETERICA LLC</p>
+          </div>
+          <div>
+            <p class="k mono">Location</p>
+            <p class="v">Allen, Texas, United States</p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- ===================== FAQ ===================== -->
+    <section class="section tint" id="faq">
+      <div class="wrap">
+        <p class="eyebrow">FAQ</p>
+        <h2 class="section-title">Questions, answered plainly</h2>
+        <div class="faq-list">
+          <details>
+            <summary>Is this a medical device?</summary>
+            <p>No. The app and the Deterica Kit are a demonstration and a training tool. Neither is a medical device, and nothing on this site or in the app claims a therapeutic, rehabilitative, or diagnostic benefit.</p>
+          </details>
+          <details>
+            <summary>Can I buy a prosthetic hand from you today?</summary>
+            <p>No, and nothing else here is on sale either. The hand is not for sale. The kit is in development, and it is not for sale. The app is built, and it is not in the App Store yet. What exists today is the control, and it runs. Write to us and we will tell you when any of it changes.</p>
+          </details>
+          <details>
+            <summary>Who can use this control method?</summary>
+            <p>It needs a preserved rotation of the residual limb, because that rotation is the input. A prosthetist is the right person to say whether a particular limb has it.</p>
+          </details>
+          <details>
+            <summary>Why is the app useful with no kit?</summary>
+            <p>Because the control model is the thing worth judging, and the app runs the same logic. A lever and two buttons on the screen behave as the kit behaves, so a person sees proportional control and grip selection at work. That is the point of building the app first: nobody spends money or months on hardware, on a kit or on a hand, to find out what the principle does. The app answers that on a phone, and it is free.</p>
+          </details>
+          <details>
+            <summary>Is the control logic open?</summary>
+            <p>Not at present. The control library, the firmware, and the app are private. If you have a research or a teaching use for them, write to us and describe it.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- The footer. Also duplicated; keep it in step with the other files. -->
+  <footer class="site-footer">
+    <div class="wrap footer-grid">
+      <div class="footer-brand">
+        <a class="brand" href="index.html" aria-label="Deterica home">
+          <img class="brand-logo" src="assets/brand/svg/wordmark-light.svg" width="141" height="18" alt="Deterica" />
+        </a>
+        <p class="footer-tag">
+          Prosthetic hand control that needs no electrodes. Built by DETERICA LLC,
+          Allen, Texas.
+        </p>
+      </div>
+      <nav class="footer-col" aria-label="Product">
+        <p class="footer-h mono">Product</p>
+        <a href="control.html">The control</a>
+        <a href="kit.html">The Deterica Kit</a>
+        <a href="kit.html#app">The app</a>
+      </nav>
+      <nav class="footer-col" aria-label="Company">
+        <p class="footer-h mono">Company</p>
+        <a href="story.html">Why this exists</a>
+        <a href="contact.html#faq">FAQ</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+      <div class="footer-col">
+        <p class="footer-h mono">Contact</p>
+        <a href="mailto:oleg@deterica.com">oleg@deterica.com</a>
+        <p class="footer-small">DETERICA LLC<br>Allen, Texas<br>United States</p>
+      </div>
+    </div>
+
+    <div class="wrap footer-legal">
+      <p>
+        <strong>Not a medical device.</strong> The Deterica Kit is a demonstration kit and a
+        training kit. It is not a medical device. Nothing on this site is a therapeutic,
+        rehabilitative, or diagnostic claim, and nothing here is advice on the choice of a
+        prosthesis. Speak to a prosthetist.
+      </p>
+      <p>
+        The hand is not a product for sale today, and the app is not in the App Store yet.
+        Apple and App Store are trademarks of Apple Inc.
+      </p>
+    </div>
+
+    <div class="wrap footer-bottom">
+      <p class="mono">© <span id="year">2026</span> DETERICA LLC. All rights reserved.</p>
+      <p class="mono">Built in Texas.</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

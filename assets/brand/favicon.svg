@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32" role="img" aria-label="Deterica">
+  <title>Deterica</title>
+  <rect width="32" height="32" rx="7" fill="#070A0F"/>
+  <g transform="translate(3.927 -4.180) scale(0.77951)" fill="#37C8BC">
+    <path d="M3.6523 40 l0 -28.223 l10.215 0 c9.0039 0 13.457 5.6641 13.457 14.102 c0 8.457 -4.4531 14.121 -13.457 14.121 l-10.215 0 z M9.5117 34.8242 l4.0625 0 c5.1953 0 7.5781 -3.2422 7.5781 -8.9453 s-2.3828 -8.9453 -7.5781 -8.9453 l-4.0625 0 l0 17.891 z"/>
+  </g>
+</svg>

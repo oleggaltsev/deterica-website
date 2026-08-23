@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Why this exists — Deterica</title>
+  <meta name="description" content="This did not begin as a business plan. It began with my father. Why Deterica set out to build prosthetic hand control that needs no electrodes." />
+  <meta name="theme-color" content="#070A0F" />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Why this exists — Deterica" />
+  <meta property="og:description" content="This did not begin as a business plan. It began with my father. Why Deterica set out to build prosthetic hand control that needs no electrodes." />
+  <meta property="og:image" content="assets/hand-hero-alt.jpg" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet" />
+
+  <link rel="icon" href="assets/brand/favicon-32.png" sizes="32x32" />
+  <link rel="icon" href="assets/brand/favicon.svg" type="image/svg+xml" />
+  <link rel="apple-touch-icon" href="assets/brand/apple-touch-icon.png" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <!-- The header. It is the same in every file; keep them in step. -->
+  <header class="site-header" id="top">
+    <div class="wrap header-inner">
+      <a class="brand" href="index.html" aria-label="Deterica home">
+        <img class="brand-logo" src="assets/brand/svg/wordmark-light.svg" width="157" height="20" alt="Deterica" />
+      </a>
+
+      <nav class="nav" aria-label="Primary">
+        <a href="index.html">Home</a>
+        <a href="control.html">The control</a>
+        <a href="kit.html">The Kit</a>
+        <a class="is-active" href="story.html">The story</a>
+        <a href="history.html">History</a>
+      </nav>
+
+      <div class="header-cta">
+        <a class="btn btn-solid" href="contact.html">Contact</a>
+      </div>
+
+      <button class="nav-toggle" aria-expanded="false" aria-controls="mobile-nav" aria-label="Open menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+    <div class="mobile-nav" id="mobile-nav" hidden>
+      <a href="index.html">Home</a>
+      <a href="control.html">The control</a>
+      <a href="kit.html">The Kit</a>
+      <a class="is-active" href="story.html">The story</a>
+      <a href="history.html">History</a>
+      <a class="btn btn-solid" href="contact.html">Contact</a>
+    </div>
+  </header>
+
+  <main>
+    <!-- ===================== THE STORY =====================
+         The founder's own words. Only two things here came from him: it began
+         with his father, and it is not only for his father. Everything else is
+         a draft written in his voice, and he replaces it.
+
+         The draft states no fact about his father — no cause, no date, no
+         diagnosis, no quotation. That is deliberate. Do NOT add one. The claims
+         about the market (the price, the months, the muscle signal) come from
+         myotriton-company/02_Market_Positioning.md and they are checkable; the
+         claims about a family are not, and they are not ours to make.
+
+         The paragraph that names Siarhei Arefyev names a living person and a
+         co-owner of the original IP. His spelling comes from
+         myotriton-company/docs/ownership-cap-table.md. Do not publish it
+         until he has agreed to be named here. -->
+    <section class="section tint" id="story">
+      <div class="wrap">
+        <div class="story">
+          <p class="eyebrow">Why this exists</p>
+          <h1 class="story-lead">This did not begin as a business plan. It began with my father</h1>
+          <p>
+            I went looking for a hand for him. What I found was a market where a good hand costs
+            more than a car, takes months to obtain, and then asks the user to learn a muscle
+            signal before it will move at all. For a lot of people that is not a choice between
+            devices. It is the difference between a hand and no hand.
+          </p>
+          <p>
+            So I set out to build the thing I could not buy: control that works from a movement
+            a person already has, and that the person can set up alone, at the kitchen table.
+          </p>
+          <p>
+            Somewhere along the way it stopped being only about him. The same wall stands in
+            front of everybody who has been told that a multi-grip hand is either unaffordable
+            or too hard to use. I would like to take that wall down for them too.
+          </p>
+          <p>
+            I do not build it alone. <strong>Siarhei Arefyev</strong> turned the control into
+            working hardware on the first hand, and he is working with me on this project.
+          </p>
+          <figure class="story-video">
+            <button class="video" type="button" data-yt="9EDitzRrm04"
+                    aria-label="Play the video: inside the lab, the interview">
+              <img src="assets/video-interview.jpg" alt="" width="900" height="506" loading="lazy" />
+              <span class="play" aria-hidden="true"></span>
+            </button>
+          </figure>
+
+          <p class="story-sig mono">Oleg Haltsev · Founder, DETERICA LLC</p>
+
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- The footer. Also duplicated; keep it in step with the other files. -->
+  <footer class="site-footer">
+    <div class="wrap footer-grid">
+      <div class="footer-brand">
+        <a class="brand" href="index.html" aria-label="Deterica home">
+          <img class="brand-logo" src="assets/brand/svg/wordmark-light.svg" width="141" height="18" alt="Deterica" />
+        </a>
+        <p class="footer-tag">
+          Prosthetic hand control that needs no electrodes. Built by DETERICA LLC,
+          Allen, Texas.
+        </p>
+      </div>
+      <nav class="footer-col" aria-label="Product">
+        <p class="footer-h mono">Product</p>
+        <a href="control.html">The control</a>
+        <a href="kit.html">The Deterica Kit</a>
+        <a href="kit.html#app">The app</a>
+      </nav>
+      <nav class="footer-col" aria-label="Company">
+        <p class="footer-h mono">Company</p>
+        <a href="story.html">Why this exists</a>
+        <a href="contact.html#faq">FAQ</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+      <div class="footer-col">
+        <p class="footer-h mono">Contact</p>
+        <a href="mailto:oleg@deterica.com">oleg@deterica.com</a>
+        <p class="footer-small">DETERICA LLC<br>Allen, Texas<br>United States</p>
+      </div>
+    </div>
+
+    <div class="wrap footer-legal">
+      <p>
+        <strong>Not a medical device.</strong> The Deterica Kit is a demonstration kit and a
+        training kit. It is not a medical device. Nothing on this site is a therapeutic,
+        rehabilitative, or diagnostic claim, and nothing here is advice on the choice of a
+        prosthesis. Speak to a prosthetist.
+      </p>
+      <p>
+        The hand is not a product for sale today, and the app is not in the App Store yet.
+        Apple and App Store are trademarks of Apple Inc.
+      </p>
+    </div>
+
+    <div class="wrap footer-bottom">
+      <p class="mono">© <span id="year">2026</span> DETERICA LLC. All rights reserved.</p>
+      <p class="mono">Built in Texas.</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

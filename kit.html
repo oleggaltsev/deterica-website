@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Deterica Kit — a desktop kit and a free app</title>
+  <meta name="description" content="The Deterica Kit is the control of a prosthetic hand without the hand itself: a desktop kit with a lever, and a free iOS app that draws the hand the lever moves. It needs no clinic and no calibration by a specialist." />
+  <meta name="theme-color" content="#070A0F" />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="The Deterica Kit — a desktop kit and a free app" />
+  <meta property="og:description" content="The Deterica Kit is the control of a prosthetic hand without the hand itself: a desktop kit with a lever, and a free iOS app that draws the hand the lever moves. It needs no clinic and no calibration by a specialist." />
+  <meta property="og:image" content="assets/hand-hero-alt.jpg" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet" />
+
+  <link rel="icon" href="assets/brand/favicon-32.png" sizes="32x32" />
+  <link rel="icon" href="assets/brand/favicon.svg" type="image/svg+xml" />
+  <link rel="apple-touch-icon" href="assets/brand/apple-touch-icon.png" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <!-- The header. It is the same in every file; keep them in step. -->
+  <header class="site-header" id="top">
+    <div class="wrap header-inner">
+      <a class="brand" href="index.html" aria-label="Deterica home">
+        <img class="brand-logo" src="assets/brand/svg/wordmark-light.svg" width="157" height="20" alt="Deterica" />
+      </a>
+
+      <nav class="nav" aria-label="Primary">
+        <a href="index.html">Home</a>
+        <a href="control.html">The control</a>
+        <a class="is-active" href="kit.html">The Kit</a>
+        <a href="story.html">The story</a>
+        <a href="history.html">History</a>
+      </nav>
+
+      <div class="header-cta">
+        <a class="btn btn-solid" href="contact.html">Contact</a>
+      </div>
+
+      <button class="nav-toggle" aria-expanded="false" aria-controls="mobile-nav" aria-label="Open menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+    <div class="mobile-nav" id="mobile-nav" hidden>
+      <a href="index.html">Home</a>
+      <a href="control.html">The control</a>
+      <a class="is-active" href="kit.html">The Kit</a>
+      <a href="story.html">The story</a>
+      <a href="history.html">History</a>
+      <a class="btn btn-solid" href="contact.html">Contact</a>
+    </div>
+  </header>
+
+  <main>
+    <!-- ===================== DEVELOPER KIT ===================== -->
+    <section class="section" id="kit">
+      <div class="wrap">
+        <p class="eyebrow center">The product that ships first</p>
+        <h1 class="section-title center">The Deterica Kit</h1>
+        <p class="section-sub center">
+          A prosthetic hand costs more than a car and takes months to obtain. Nobody should have
+          to buy one to find out whether this control model suits them. The Deterica Kit is
+          the control of that hand without the hand itself: a desktop kit with a lever, and an app
+          that draws the hand the lever moves.
+        </p>
+        <p class="section-sub center" style="margin-top:1.1rem">
+          The two halves do not arrive together. <strong>The app is built, and it needs no
+          hardware:</strong> it runs on a phone alone, and a person can learn the control model
+          on the screen. The kit is in development. It will connect to the same app, and then a
+          lever on the desk moves the hand on the screen.
+        </p>
+
+        <!-- Why the kit exists at all. Written narrow on purpose.
+             IT STATES A PURPOSE, NOT ADVICE. It does not tell a reader to delay
+             a prosthesis, it does not tell a reader to spend less on one, and it
+             names no clinician. The site disclaims advice on the choice of a
+             prosthesis in the footer of every page, so a sentence here that
+             reads as "do not buy that yet" would contradict the footer.
+
+             It also does not lead with price. myotriton-company/02_Market_Positioning.md
+             records a competitor at about $5,000 and states that the price half
+             of the wedge is gone. The argument that holds is fit: a person finds
+             out whether the control suits them. Keep it on fit. -->
+        <div class="note">
+          <h3>What the kit is for</h3>
+          <p>
+            A control method either suits a person or it does not, and no description settles
+            that. The kit exists so a person finds out first. The lever gives the movement a
+            socket gives, the app draws the hand that follows it, and no prosthesis is involved
+            at all.
+          </p>
+          <p>
+            A prosthetic hand is a commitment of money and of months. So the order here is
+            deliberate: try the control, and then decide. The app stays free, and it needs no
+            kit. Nothing on this page is advice on the choice of a prosthesis. Speak to a
+            prosthetist.
+          </p>
+        </div>
+
+        <div class="grid-2">
+          <article class="card">
+            <p class="mono card-no">The kit</p>
+            <h3>A lever, two buttons, one light</h3>
+            <p>
+              The lever stands in for the residual limb. The kit reads the lever, applies the
+              same calibration, and runs the same control logic a hand would run. It works with
+              no phone: the buttons, the light, and the calibration all work alone.
+            </p>
+            <ul class="ticks">
+              <li><span class="tick">✓</span><div>USB-C powered. Version 1 has no battery</div></li>
+              <li><span class="tick">✓</span><div>Bluetooth Low Energy to the phone</div></li>
+              <li><span class="tick">✓</span><div>Calibration is stored on the kit and applied at power on</div></li>
+              <li><span class="tick">✓</span><div>It does not slide or tip when the user turns the lever</div></li>
+            </ul>
+          </article>
+          <article class="card">
+            <p class="mono card-no">The app</p>
+            <h3>The hand, on your phone</h3>
+            <p>
+              The app shows a virtual hand that follows the lever with no visible delay. It runs
+              with no kit at all: a lever and two buttons on the screen drive the same control
+              logic, so anybody can try the model before a kit exists.
+            </p>
+            <ul class="ticks">
+              <li><span class="tick">✓</span><div>Five grips: power grip, pinch, point, rock, hook</div></li>
+              <li><span class="tick">✓</span><div>Left hand or right hand</div></li>
+              <li><span class="tick">✓</span><div>Calibrate from the app or from the kit buttons</div></li>
+              <li><span class="tick">✓</span><div>No account, and no server. Settings stay on the phone</div></li>
+            </ul>
+          </article>
+        </div>
+
+      </div>
+    </section>
+    <!-- ===================== THE APP ===================== -->
+    <section class="section dark" id="app">
+      <div class="wrap">
+        <div class="split reverse">
+          <div>
+            <p class="eyebrow light">The app</p>
+            <h2 class="section-title light">One control logic. Two places it can run</h2>
+            <p class="section-sub light-sub">
+              The kit and the app run the same control logic, and a recorded trace holds them to
+              it: the app replays every tick the kit recorded and compares every output field. A
+              behaviour that drifts in one place turns a test red.
+            </p>
+            <ul class="ticks">
+              <li><span class="tick">✓</span><div><strong>The app works with no kit.</strong> The screen gives a lever and two buttons, and nothing more than a kit has. This is how the app runs today</div></li>
+              <li><span class="tick">✓</span><div><strong>The kit is the authority.</strong> When a kit is connected, the app runs no control tick of its own. Two copies would fight for the screen</div></li>
+              <li><span class="tick">✓</span><div><strong>It never lies about a command.</strong> The app does not report success until the kit acknowledges it</div></li>
+              <li><span class="tick">✓</span><div><strong>The lever is not smoothed.</strong> The finger the lever drives answers on the tick the lever moves</div></li>
+            </ul>
+          </div>
+
+          <div class="split-media">
+            <div class="phone">
+              <img src="assets/app-screen.png" alt="The Deterica Kit app running on an iPhone: the hand, the row of five grips, a thumb slider, and the lever." width="600" height="1304" />
+            </div>
+            <p class="mono figure-note">The app, running on an iPhone</p>
+          </div>
+        </div>
+
+        <!-- ---------- The app is not out yet ----------
+             No store badge, and no QR code. The site goes up before the release,
+             so a badge that leads nowhere and a code that scans to nothing are
+             worse than no badge at all. One line of state, and one address to
+             write to. Put a real badge and a real code here on the day the
+             listing opens, and not before. -->
+        <div class="download">
+          <div>
+            <p class="eyebrow">Get the app</p>
+            <h3 style="font-size:1.5rem;margin:0 0 .6rem;font-weight:600">Coming soon</h3>
+            <p class="download-lede">
+              The app is built and it works. It is not in the App Store yet. Write to us, and we
+              will tell you the day it lands there.
+            </p>
+            <p style="margin-top:1.3rem">
+              <a class="btn btn-solid" href="mailto:oleg@deterica.com?subject=Tell%20me%20when%20the%20app%20is%20out">Tell me when the app is out</a>
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- The two recordings of the hand being built and tested. -->
+    <section class="section" id="video">
+      <div class="wrap">
+        <p class="eyebrow center">Video</p>
+        <h2 class="section-title center">The hand it came from</h2>
+        <p class="section-sub center">
+          The kit carries the control of a hand that exists. These are recordings of that hand.
+        </p>
+        <div class="videos videos-two">
+          <figure class="video-item">
+            <button class="video" type="button" data-yt="htbFSBFnRUU"
+                    aria-label="Play the video: first test of the latest prototype">
+              <img src="assets/video-moulded.jpg" alt="" width="900" height="506" loading="lazy" />
+              <span class="play" aria-hidden="true"></span>
+            </button>
+            <figcaption>First test of the latest prototype</figcaption>
+          </figure>
+          <figure class="video-item">
+            <button class="video" type="button" data-yt="Kx1t_u0Xl38"
+                    aria-label="Play the video: building it, and testing it">
+              <img src="assets/video-testing.jpg" alt="" width="900" height="506" loading="lazy" />
+              <span class="play" aria-hidden="true"></span>
+            </button>
+            <figcaption>Building it, and testing it</figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== GET IT =====================
+         Neither the kit nor the app is on sale. Nothing here pretends to be a
+         shop: one line of state, and one address to write to. -->
+    <section class="section dark" id="get">
+      <div class="wrap">
+        <p class="eyebrow light center">Get it</p>
+        <h2 class="section-title center light">The kit is not on sale yet</h2>
+        <p class="section-sub center light-sub">
+          The control works and the electronics work. What remains is the mechanical part, and
+          it is what decides the date. The hand behind it needs more than that again.
+        </p>
+
+        <!-- ---------- The kit is not on sale ----------
+             No shop badge. See the note on the app block above: the same rule
+             holds here. -->
+        <div class="download">
+          <div>
+            <p class="eyebrow">Get the kit</p>
+            <h3 style="font-size:1.5rem;margin:0 0 .6rem;font-weight:600">Coming soon</h3>
+            <p class="download-lede">
+              The control and the electronics work. The mechanical part is what remains, and it
+              decides the date. Write to us, and we will tell you when the kit goes on sale.
+            </p>
+            <p style="margin-top:1.3rem">
+              <a class="btn btn-solid" href="mailto:oleg@deterica.com?subject=Tell%20me%20when%20the%20kit%20ships">Tell me when the kit ships</a>
+            </p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+  </main>
+
+  <!-- The footer. Also duplicated; keep it in step with the other files. -->
+  <footer class="site-footer">
+    <div class="wrap footer-grid">
+      <div class="footer-brand">
+        <a class="brand" href="index.html" aria-label="Deterica home">
+          <img class="brand-logo" src="assets/brand/svg/wordmark-light.svg" width="141" height="18" alt="Deterica" />
+        </a>
+        <p class="footer-tag">
+          Prosthetic hand control that needs no electrodes. Built by DETERICA LLC,
+          Allen, Texas.
+        </p>
+      </div>
+      <nav class="footer-col" aria-label="Product">
+        <p class="footer-h mono">Product</p>
+        <a href="control.html">The control</a>
+        <a href="kit.html">The Deterica Kit</a>
+        <a href="kit.html#app">The app</a>
+      </nav>
+      <nav class="footer-col" aria-label="Company">
+        <p class="footer-h mono">Company</p>
+        <a href="story.html">Why this exists</a>
+        <a href="contact.html#faq">FAQ</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+      <div class="footer-col">
+        <p class="footer-h mono">Contact</p>
+        <a href="mailto:oleg@deterica.com">oleg@deterica.com</a>
+        <p class="footer-small">DETERICA LLC<br>Allen, Texas<br>United States</p>
+      </div>
+    </div>
+
+    <div class="wrap footer-legal">
+      <p>
+        <strong>Not a medical device.</strong> The Deterica Kit is a demonstration kit and a
+        training kit. It is not a medical device. Nothing on this site is a therapeutic,
+        rehabilitative, or diagnostic claim, and nothing here is advice on the choice of a
+        prosthesis. Speak to a prosthetist.
+      </p>
+      <p>
+        The hand is not a product for sale today, and the app is not in the App Store yet.
+        Apple and App Store are trademarks of Apple Inc.
+      </p>
+    </div>
+
+    <div class="wrap footer-bottom">
+      <p class="mono">© <span id="year">2026</span> DETERICA LLC. All rights reserved.</p>
+      <p class="mono">Built in Texas.</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
