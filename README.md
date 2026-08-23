@@ -249,7 +249,7 @@ xcodebuild -project HandKitApp.xcodeproj -scheme HandKitApp \
 UDID=$(xcrun simctl list devices available | grep -m1 'iPhone 17 Pro (' | sed 's/.*(\([A-F0-9-]*\)).*/\1/')
 xcrun simctl boot "$UDID"; xcrun simctl bootstatus "$UDID" -b
 xcrun simctl install "$UDID" /tmp/dd/Build/Products/Debug-iphonesimulator/HandKitApp.app
-xcrun simctl launch "$UDID" com.deterica.genesis.kit
+xcrun simctl launch "$UDID" com.deterica.kit
 xcrun simctl io "$UDID" screenshot /tmp/app-raw.png
 sips --resampleWidth 600 -s format png /tmp/app-raw.png --out assets/app-screen.png
 xcrun simctl shutdown "$UDID"
