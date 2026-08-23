@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The history — Deterica</title>
+  <meta name="description" content="One idea, two builds: the first bionic hand, what it proved, what it did not, and the new version of the prototype we build now." />
+  <meta name="theme-color" content="#070A0F" />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="The history — Deterica" />
+  <meta property="og:description" content="One idea, two builds: the first bionic hand, what it proved, what it did not, and the new version of the prototype we build now." />
+  <meta property="og:image" content="assets/hand-hero-alt.jpg" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet" />
+
+  <link rel="icon" href="assets/brand/favicon-32.png" sizes="32x32" />
+  <link rel="icon" href="assets/brand/favicon.svg" type="image/svg+xml" />
+  <link rel="apple-touch-icon" href="assets/brand/apple-touch-icon.png" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <!-- The header. It is the same in every file; keep them in step. -->
+  <header class="site-header" id="top">
+    <div class="wrap header-inner">
+      <a class="brand" href="index.html" aria-label="Deterica home">
+        <img class="brand-logo" src="assets/brand/svg/wordmark-light.svg" width="157" height="20" alt="Deterica" />
+      </a>
+
+      <nav class="nav" aria-label="Primary">
+        <a href="index.html">Home</a>
+        <a href="control.html">The control</a>
+        <a href="kit.html">The Kit</a>
+        <a href="story.html">The story</a>
+        <a class="is-active" href="history.html">History</a>
+      </nav>
+
+      <div class="header-cta">
+        <a class="btn btn-solid" href="contact.html">Contact</a>
+      </div>
+
+      <button class="nav-toggle" aria-expanded="false" aria-controls="mobile-nav" aria-label="Open menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+    <div class="mobile-nav" id="mobile-nav" hidden>
+      <a href="index.html">Home</a>
+      <a href="control.html">The control</a>
+      <a href="kit.html">The Kit</a>
+      <a href="story.html">The story</a>
+      <a class="is-active" href="history.html">History</a>
+      <a class="btn btn-solid" href="contact.html">Contact</a>
+    </div>
+  </header>
+
+  <main>
+    <!-- ===================== THE HISTORY =====================
+         This page replaced the status page on 2026-08-23. The four-part state
+         did not disappear: it lives inside the 2026 entry, because the state
+         IS the current entry of the line.
+
+         THE ONLY YEAR ON THIS PAGE IS 2026, AND THAT IS DELIBERATE. The earlier
+         build has a full dated record, and the founder does not want any of
+         those dates published: a year in the past lets the reader measure the
+         span between the two builds. Do not add one back.
+
+         The record exists, and it is checkable, for the claims this page makes
+         about the earlier build:
+
+           the build       2017-07-14 to 2018-03, dated photographs
+                           myotriton-legacy/MANIFEST.md section 5
+           the control     assembly of 2017-08-22
+                           myotriton-legacy/.../Управление-22.08.2017/
+           the CAD         master assembly of 2018-06-12
+                           myotriton-legacy/MANIFEST.md section 1
+           the grips       Pinch, Point, Forceps, and Fist, on video
+                           myotriton-company/01_Current_State.md section A.2
+           the mechanics   cheap motors, weak design, needs a rebuild
+                           myotriton-company/01_Current_State.md section A.2
+
+         The line reads newest first, so the reader meets today before the
+         history. The intro says so.
+
+         THE LINE CARRIES TWO ENTRIES: "2026 · now" and "Before 2026". Do not
+         split the second one into a year of its own, and do not add an entry
+         between them.
+
+         NOT ON THIS PAGE, and it is deliberate: the patents, the lapse of the
+         patents, and the dissolved company. Those are true, they are in
+         myotriton-company/IP_status.md, and they are not a claim this site
+         makes to a visitor. Ask the founder before you add any of it. -->
+    <section class="section" id="history">
+      <div class="wrap">
+        <p class="eyebrow center">The history</p>
+        <h1 class="section-title center">The first hand, and the one we build now</h1>
+        <p class="section-sub center">
+          The line below reads from the bottom. It starts with the hand that was built, and it
+          ends at the top, with the work of today.
+        </p>
+
+        <ol class="timeline">
+          <li class="tl-item is-now">
+            <p class="tl-year mono">2026 &middot; now</p>
+            <h2>A new version of the prototype</h2>
+            <p>
+              We are building the new version of the prototype. The app and the kit are the
+              work of this year. The control logic runs already, and a recorded trace holds it
+              to its behaviour tick by tick.
+            </p>
+            <ul class="status">
+              <li>
+                <span class="mono state ready">Working</span>
+                <h3>The control</h3>
+                <p>The control logic runs, and a recorded trace holds it to its behaviour tick by tick.</p>
+              </li>
+              <li>
+                <span class="mono state ready">Working</span>
+                <h3>The app</h3>
+                <p>Built, and it runs with no kit. It is free, and the App Store listing opens with the release.</p>
+              </li>
+              <li>
+                <span class="mono state wip">In development</span>
+                <h3>The kit</h3>
+                <p>The mechanical part — the enclosure, the lever, and the moulds — is the work that sets the date.</p>
+              </li>
+              <li>
+                <span class="mono state wip">In development</span>
+                <h3>The hand</h3>
+                <p>Work continues on the mechanics the control moves. It is not for sale yet.</p>
+              </li>
+            </ul>
+          </li>
+
+          <li class="tl-item">
+            <p class="tl-year mono">Before 2026</p>
+            <h2>The first hand was built, and it held a grip</h2>
+            <p>
+              An earlier hand was designed, built, and tested. It ran on video, and it held four
+              grips: pinch, point, forceps, and fist.
+            </p>
+            <p>
+              The mechanics used cheap motors, and the design of the mechanics was weak. The
+              concept held. The build did not, and that is the reason for the new version.
+            </p>
+          </li>
+        </ol>
+
+        <div class="grid-3" style="margin-top:clamp(48px,6vw,80px)">
+          <article class="card">
+            <p class="mono card-no">01</p>
+            <h3>The control</h3>
+            <p>How a movement a person already has becomes a hand that follows. Why EMG is a load, and what this method does not claim.</p>
+            <p style="margin-top:1.1rem"><a class="card-link" href="control.html">Read the method &rarr;</a></p>
+          </article>
+          <article class="card">
+            <p class="mono card-no">02</p>
+            <h3>The Deterica Kit</h3>
+            <p>A desktop kit with a lever, and a free app that draws the hand the lever moves. The product that ships first.</p>
+            <p style="margin-top:1.1rem"><a class="card-link" href="kit.html">See the kit &rarr;</a></p>
+          </article>
+          <article class="card">
+            <p class="mono card-no">03</p>
+            <h3>Why this exists</h3>
+            <p>It began with my father. What I found in the market, and why I set out to build the thing I could not buy.</p>
+            <p style="margin-top:1.1rem"><a class="card-link" href="story.html">Read the story &rarr;</a></p>
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- The footer. Also duplicated; keep it in step with the other files. -->
+  <footer class="site-footer">
+    <div class="wrap footer-grid">
+      <div class="footer-brand">
+        <a class="brand" href="index.html" aria-label="Deterica home">
+          <img class="brand-logo" src="assets/brand/svg/wordmark-light.svg" width="141" height="18" alt="Deterica" />
+        </a>
+        <p class="footer-tag">
+          Prosthetic hand control that needs no electrodes. Built by DETERICA LLC,
+          Allen, Texas.
+        </p>
+      </div>
+      <nav class="footer-col" aria-label="Product">
+        <p class="footer-h mono">Product</p>
+        <a href="control.html">The control</a>
+        <a href="kit.html">The Deterica Kit</a>
+        <a href="kit.html#app">The app</a>
+      </nav>
+      <nav class="footer-col" aria-label="Company">
+        <p class="footer-h mono">Company</p>
+        <a href="story.html">Why this exists</a>
+        <a href="contact.html#faq">FAQ</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+      <div class="footer-col">
+        <p class="footer-h mono">Contact</p>
+        <a href="mailto:oleg@deterica.com">oleg@deterica.com</a>
+        <p class="footer-small">DETERICA LLC<br>Allen, Texas<br>United States</p>
+      </div>
+    </div>
+
+    <div class="wrap footer-legal">
+      <p>
+        <strong>Not a medical device.</strong> The Deterica Kit is a demonstration kit and a
+        training kit. It is not a medical device. Nothing on this site is a therapeutic,
+        rehabilitative, or diagnostic claim, and nothing here is advice on the choice of a
+        prosthesis. Speak to a prosthetist.
+      </p>
+      <p>
+        The hand is not a product for sale today, and the app is not in the App Store yet.
+        Apple and App Store are trademarks of Apple Inc.
+      </p>
+    </div>
+
+    <div class="wrap footer-bottom">
+      <p class="mono">© <span id="year">2026</span> DETERICA LLC. All rights reserved.</p>
+      <p class="mono">Built in Texas.</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

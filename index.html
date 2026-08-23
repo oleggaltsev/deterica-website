@@ -16,7 +16,9 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet" />
 
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23070A0F'/%3E%3Cpath d='M9 23V9h6.5c4 0 6.5 2.8 6.5 7s-2.5 7-6.5 7H9zm4-3.4h2.2c1.8 0 2.8-1.3 2.8-3.6s-1-3.6-2.8-3.6H13v7.2z' fill='%2337C8BC'/%3E%3C/svg%3E" />
+  <link rel="icon" href="assets/brand/favicon-32.png" sizes="32x32" />
+  <link rel="icon" href="assets/brand/favicon.svg" type="image/svg+xml" />
+  <link rel="apple-touch-icon" href="assets/brand/apple-touch-icon.png" />
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
@@ -24,17 +26,15 @@
   <header class="site-header" id="top">
     <div class="wrap header-inner">
       <a class="brand" href="index.html" aria-label="Deterica home">
-        <svg class="brand-mark" width="30" height="30" viewBox="0 0 32 32" aria-hidden="true">
-          <rect width="32" height="32" rx="7" fill="#0D131B"/>
-          <path d="M9 23V9h6.5c4 0 6.5 2.8 6.5 7s-2.5 7-6.5 7H9zm4-3.4h2.2c1.8 0 2.8-1.3 2.8-3.6s-1-3.6-2.8-3.6H13v7.2z" fill="#37C8BC"/>
-        </svg>
-        <span class="brand-word">DETERICA</span>
+        <img class="brand-logo" src="assets/brand/svg/wordmark-light.svg" width="157" height="20" alt="Deterica" />
       </a>
 
       <nav class="nav" aria-label="Primary">
+        <a class="is-active" href="index.html">Home</a>
         <a href="control.html">The control</a>
         <a href="kit.html">The Kit</a>
         <a href="story.html">The story</a>
+        <a href="history.html">History</a>
       </nav>
 
       <div class="header-cta">
@@ -46,9 +46,11 @@
       </button>
     </div>
     <div class="mobile-nav" id="mobile-nav" hidden>
+      <a class="is-active" href="index.html">Home</a>
       <a href="control.html">The control</a>
       <a href="kit.html">The Kit</a>
       <a href="story.html">The story</a>
+      <a href="history.html">History</a>
       <a class="btn btn-solid" href="contact.html">Contact</a>
     </div>
   </header>
@@ -63,53 +65,233 @@
           <h1 class="display">
             The hand follows<br>your <span class="accent">own movement</span>
           </h1>
+          <!-- The mechanism is not the hero's job: control.html carries the
+               chain, sensor by sensor. This is the hook, and it is aimed at
+               three readers at once — the user, the clinician, and the
+               prosthetist. Every claim in it is already on control.html:
+               the movement the person has, the held position, and the
+               two-button calibration with no clinic visit. Add nothing here
+               that is not on that page. -->
           <p class="lede">
-            The user moves the residual limb against the socket. A position sensor reads the
-            movement. The hand follows the range the user calibrated. There is no electrode, no
-            muscle signal, and no training on a signal that drifts with sweat or with a socket
-            that shifts.
+            There is no electrode, no muscle signal, and no training on a signal that drifts
+            with sweat or with a socket that shifts. The input is a movement the person already
+            has. The hand holds the position they give it, so halfway is halfway, and the
+            calibration is two button holds that the user does alone.
           </p>
+          <!-- The first button proves the claim above it; the second sells.
+               Do not swap the order: the kit is not on sale yet, so a reader
+               who clicks it first meets "Coming soon" with no reason to care. -->
           <div class="hero-actions">
-            <a class="btn btn-solid btn-lg" href="kit.html">See the Deterica Kit</a>
+            <a class="btn btn-solid btn-lg" href="#runs">Watch it move</a>
+            <a class="btn btn-line btn-lg" href="kit.html">See the Deterica Kit</a>
           </div>
         </div>
 
         <figure class="render hero-render">
-          <img src="assets/hand-hero-alt.jpg" alt="The Deterica hand: a five-finger prosthetic hand, rendered from its mechanical design." width="1500" height="1067" />
+          <img src="assets/hand-hero-alt.jpg" alt="The Deterica hand: a five-finger prosthetic hand." width="1500" height="1067" />
         </figure>
+      </div>
+
+      <!-- The hero fills the screen, so nothing below it is visible on arrival.
+           This says there is more, and it is a real link to the next section. -->
+      <a class="hero-cue mono" href="#story" aria-label="Scroll to the story">Scroll</a>
+    </section>
+
+    <!-- ===================== THE STORY =====================
+         The teaser for story.html, in the founder's own words. Every sentence
+         here is already published on story.html. Do NOT add a fact about his
+         father — no cause, no date, no diagnosis. That rule holds on this page
+         too. See the comment on the story section in story.html. -->
+    <section class="section tint" id="story">
+      <div class="wrap">
+        <div class="split">
+          <div class="story story-teaser">
+            <p class="eyebrow">Why this exists</p>
+            <p class="story-lead">This did not begin as a business plan. It began with my father</p>
+            <p>
+              I went looking for a hand for him. What I found was a market where a good hand
+              costs more than a car, takes months to obtain, and then asks the user to learn a
+              muscle signal before it will move at all.
+            </p>
+            <p>
+              So I set out to build the thing I could not buy: control that works from a
+              movement a person already has, and that the person can set up alone, at the
+              kitchen table.
+            </p>
+            <p><a class="card-link" href="story.html">Read the story &rarr;</a></p>
+            <p class="story-sig mono">Oleg Haltsev · Founder, DETERICA LLC</p>
+          </div>
+
+          <figure class="video-item split-media">
+            <button class="video" type="button" data-yt="9EDitzRrm04"
+                    aria-label="Play the video: inside the lab, the interview">
+              <img src="assets/video-interview.jpg" alt="" width="900" height="506" loading="lazy" />
+              <span class="play" aria-hidden="true"></span>
+            </button>
+            <figcaption>Inside the lab</figcaption>
+          </figure>
+        </div>
       </div>
     </section>
 
-    <!-- Where each part stands, and the three doors. The home page does no
-         explaining: each card hands the reader to the page that does. -->
-    <section class="section" id="where">
-      <div class="wrap">
-        <p class="eyebrow center">Where this stands</p>
-        <h2 class="section-title center">Two parts work. Two are in development</h2>
-        <ul class="status">
-          <li>
-            <span class="mono state ready">Working</span>
-            <h3>The control</h3>
-            <p>The control logic runs, and a recorded trace holds it to its behaviour tick by tick.</p>
-          </li>
-          <li>
-            <span class="mono state ready">Working</span>
-            <h3>The app</h3>
-            <p>Built, and it runs with no kit. It is free, and the App Store listing opens with the release.</p>
-          </li>
-          <li>
-            <span class="mono state wip">In development</span>
-            <h3>The kit</h3>
-            <p>The mechanical part — the enclosure, the lever, and the moulds — is the work that sets the date.</p>
-          </li>
-          <li>
-            <span class="mono state wip">In development</span>
-            <h3>The hand</h3>
-            <p>Work continues on the mechanics the control moves. It is not for sale yet.</p>
-          </li>
-        </ul>
+    <!-- ===================== IT ALREADY RUNS =====================
+         The grounding block. The hero claims a control method; this says the
+         method is not a sketch. Every statement here is checkable somewhere
+         else on the site, and it stays that way:
 
-        <div class="grid-3" style="margin-top:clamp(48px,6vw,80px)">
+           - the control runs and a recorded trace holds it  -> control.html
+           - the hand exists in hardware                     -> the videos
+           - the app is built and runs with no kit           -> kit.html
+
+         Frame it by what runs TODAY. The full four-part state, the two parts
+         still in development included, lives on history.html and the link at
+         the end of this block goes there. Do not paste the four statuses back
+         in here: on a first screen "two are in development" reads as "half of
+         it does not work". -->
+    <section class="section dark" id="runs">
+      <div class="wrap">
+        <p class="eyebrow light center">Not a sketch</p>
+        <h2 class="section-title center light">This already runs</h2>
+        <p class="section-sub center light-sub">
+          A control method is easy to describe and hard to believe. So here is the hand that
+          exists, and what works today.
+        </p>
+
+        <div class="videos videos-two">
+          <figure class="video-item">
+            <button class="video" type="button" data-yt="-qElkciA-kw"
+                    aria-label="Play the video: how the control works">
+              <img src="assets/video-control.jpg" alt="" width="900" height="506" loading="lazy" />
+              <span class="play" aria-hidden="true"></span>
+            </button>
+            <figcaption>How the control works</figcaption>
+          </figure>
+          <figure class="video-item">
+            <button class="video" type="button" data-yt="htbFSBFnRUU"
+                    aria-label="Play the video: first test of the latest prototype">
+              <img src="assets/video-moulded.jpg" alt="" width="900" height="506" loading="lazy" />
+              <span class="play" aria-hidden="true"></span>
+            </button>
+            <figcaption>First test of the latest prototype</figcaption>
+          </figure>
+        </div>
+
+        <div class="grid-3">
+          <article class="card">
+            <h3>The control works today</h3>
+            <p>
+              The control logic runs, and a recorded trace holds it to its behaviour tick by
+              tick. It is not a description of a method. It is a method that answers.
+            </p>
+          </article>
+          <article class="card">
+            <h3>The hand exists in hardware</h3>
+            <p>
+              The control already moved a real hand. Siarhei Arefyev built that hardware, and
+              the recordings above are of that hand.
+            </p>
+          </article>
+          <article class="card">
+            <h3>The app is built</h3>
+            <p>
+              It runs with no kit at all. A lever and two buttons on the screen drive the same
+              control logic, so the model is something a person can try.
+            </p>
+          </article>
+        </div>
+
+        <!-- The honest note. The three cards above state what runs, so this
+             states what "it runs" does not mean. Do not delete it to make the
+             block read stronger: the hand and the kit are both prototypes, and
+             the site says so on history.html and in the footer. -->
+        <div class="note">
+          <h3>It runs, and it is still a prototype</h3>
+          <p>
+            The hand in the videos is a prototype. The team built it and tested it, and it is
+            not a product. The kit is in development, and so is the hand it controls. Nothing
+            here is for sale today.
+          </p>
+          <p>
+            "It runs" means the control answers and the hardware moved. It does not mean that a
+            person can buy this, and it does not mean that it went through a clinical trial.
+          </p>
+        </div>
+
+        <p class="center" style="margin-top:2.4rem">
+          <a class="card-link" href="history.html">The whole history &rarr;</a>
+        </p>
+      </div>
+    </section>
+
+    <!-- ===================== WHAT WE OFFER =====================
+         The offer, in the shortest form that still says what a buyer gets.
+         The full page carries the specification; this carries the shape of the
+         product and one link. Keep the copy in step with the opening of
+         kit.html, and keep the price claim off this page.
+
+         THE APP COMES FIRST, AND THE ORDER IS DELIBERATE. The app is built and
+         it needs no hardware, so it is the thing a reader can understand today.
+         The kit is in development, and it follows in the last paragraph. Do not
+         lead this block with the kit.
+
+         The app is NOT in the App Store yet: kit.html says "Coming soon" and it
+         offers an address to write to, because the site goes up before the
+         release. So this block must not say "download it" or "try it today". It
+         says the app is built, and that the listing opens with the release.
+         Change that only when a real link exists. -->
+    <section class="section" id="offer">
+      <div class="wrap">
+        <div class="split">
+          <div>
+            <p class="eyebrow">What we offer</p>
+            <h2 class="section-title">The app first. It needs no hardware at all</h2>
+            <p class="section-sub">
+              A prosthetic hand costs more than a car and takes months to obtain. Nobody should
+              have to buy one to find out whether this control model suits them.
+            </p>
+            <p class="section-sub" style="margin-top:1.1rem">
+              So the app comes first, and it is built. It runs on a phone alone: a lever and two
+              buttons on the screen drive the control logic, and a hand on the screen follows
+              them. There is no kit to connect, and no prosthesis to wear. A person can hold the
+              model in their hand and see what it does.
+            </p>
+            <ul class="ticks ticks-lead">
+              <li><span class="tick">✓</span><div>The app runs with no kit and no prosthetic hand</div></li>
+              <li><span class="tick">✓</span><div>Five grips: power grip, pinch, point, rock, hook. Left hand or right hand</div></li>
+              <li><span class="tick">✓</span><div>No account, and no server. Settings stay on the phone</div></li>
+              <li><span class="tick">✓</span><div>It is free. The App Store listing opens with the release</div></li>
+            </ul>
+            <p class="section-sub" style="margin-top:1.6rem">
+              The kit is the next step, and it is in development. It puts the same control logic
+              on a desk: a lever to turn, two buttons, and one light. It connects to the app, and
+              then the lever moves the hand on the screen. The lever stands in for the residual
+              limb, so a person tries the control with no prosthesis of their own.
+            </p>
+            <p style="margin-top:1.8rem">
+              <a class="btn btn-solid" href="kit.html">See the app and the kit</a>
+            </p>
+          </div>
+
+          <div class="split-media">
+            <div class="phone">
+              <img src="assets/app-screen.png" alt="The Deterica Kit app running on an iPhone: the hand, the row of five grips, a thumb slider, and the lever." width="600" height="1304" loading="lazy" />
+            </div>
+            <p class="mono figure-note">The app, running on an iPhone</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== LEARN MORE =====================
+         The doors, and they are ranked on purpose. The method is what a reader
+         doubts first, the state is what they ask second, and the story is what
+         they read last. Keep that order. -->
+    <section class="section tint" id="more">
+      <div class="wrap">
+        <p class="eyebrow center">Learn more</p>
+        <h2 class="section-title center">Where to read further</h2>
+
+        <div class="grid-3">
           <article class="card">
             <p class="mono card-no">01</p>
             <h3>The control</h3>
@@ -118,9 +300,9 @@
           </article>
           <article class="card">
             <p class="mono card-no">02</p>
-            <h3>The Deterica Kit</h3>
-            <p>A desktop kit with a lever, and a free app that draws the hand the lever moves. The product that ships first.</p>
-            <p style="margin-top:1.1rem"><a class="card-link" href="kit.html">See the kit &rarr;</a></p>
+            <h3>The history</h3>
+            <p>One idea, two builds: the first hand, what it proved, what it did not, and the new version we build now.</p>
+            <p style="margin-top:1.1rem"><a class="card-link" href="history.html">Read the history &rarr;</a></p>
           </article>
           <article class="card">
             <p class="mono card-no">03</p>
@@ -132,6 +314,29 @@
       </div>
     </section>
 
+    <!-- ===================== TALK TO US =====================
+         The closing block. The home page used to end on a card and drop the
+         reader into the legal footer. The form itself stays on contact.html:
+         one form, in one place, with one Web3Forms key. -->
+    <section class="section" id="talk">
+      <div class="wrap">
+        <div class="closer">
+          <div>
+            <p class="eyebrow">Contact</p>
+            <h2 class="section-title">Tell us we are wrong about something</h2>
+            <p class="section-sub">
+              A prosthetist, a user, an engineer, or a person who thinks this model does not
+              hold: the message goes to the founder, and a real human reads every one.
+            </p>
+          </div>
+          <div class="closer-actions">
+            <a class="btn btn-solid btn-lg" href="contact.html">Write to us</a>
+            <a class="btn btn-line" href="contact.html#faq">Read the FAQ</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
   </main>
 
   <!-- The footer. Also duplicated; keep it in step with the other files. -->
@@ -139,11 +344,7 @@
     <div class="wrap footer-grid">
       <div class="footer-brand">
         <a class="brand" href="index.html" aria-label="Deterica home">
-          <svg width="28" height="28" viewBox="0 0 32 32" aria-hidden="true">
-            <rect width="32" height="32" rx="7" fill="#151D28"/>
-            <path d="M9 23V9h6.5c4 0 6.5 2.8 6.5 7s-2.5 7-6.5 7H9zm4-3.4h2.2c1.8 0 2.8-1.3 2.8-3.6s-1-3.6-2.8-3.6H13v7.2z" fill="#37C8BC"/>
-          </svg>
-          <span class="brand-word">DETERICA</span>
+          <img class="brand-logo" src="assets/brand/svg/wordmark-light.svg" width="141" height="18" alt="Deterica" />
         </a>
         <p class="footer-tag">
           Prosthetic hand control that needs no electrodes. Built by DETERICA LLC,
@@ -177,9 +378,8 @@
         prosthesis. Speak to a prosthetist.
       </p>
       <p>
-        The images of the hand are CAD renders of its mechanical design. The hand is not a
-        product for sale today. The App Store link and the QR code on this site are
-        placeholders. Apple and App Store are trademarks of Apple Inc.
+        The hand is not a product for sale today, and the app is not in the App Store yet.
+        Apple and App Store are trademarks of Apple Inc.
       </p>
     </div>
 

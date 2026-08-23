@@ -41,28 +41,26 @@ Google Fonts.
 
 | File | Contents |
 |---|---|
-| `index.html` | The whole page. One document, with anchors |
+| `*.html` | The six pages. One page holds one topic |
 | `styles.css` | The design system, in `:root` |
 | `script.js` | The navigation highlight, the video players, mobile navigation, scroll reveals, and the contact form. It holds the Web3Forms key |
-| `assets/` | The images, the video posters, the app screenshot, and the QR placeholder |
+| `assets/` | The images, the video posters, and the app screenshot |
+| `assets/brand/` | The logo pack from Drive. The header, the footer, and the favicon come from it. Read [assets/brand/README.md](assets/brand/README.md) before you change a mark |
 
-### The navigation follows the reader
+### The navigation marks the current page
 
-Every section is in the header, and `script.js` underlines the one the reader is in. The
-rule is deliberately simple: **the current section is the one that covers the line just
-under the sticky header.** That is what a reader sees — the heading under the header is the
-heading they are reading — and it needs no thresholds to tune.
+The header links to pages, not to sections. Each file writes `class="is-active"` on its own
+link. See "The cost of no build step" below.
 
 Two details are load-bearing:
 
 - `.nav a` carries a **transparent 2px** bottom border from the start. The active state
   only adds colour, so the text never moves.
-- The handler runs on every scroll event with no `requestAnimationFrame` throttle. It reads
-  nine rectangles, which costs less than the bookkeeping, and a frame-based throttle drops
-  updates whenever the frame callback does not run.
+- `section[id]` carries `scroll-margin-top: 84px`. The header is sticky and it is 68px
+  tall. An anchor without that margin hides its own heading behind the header.
 
-Adding a section: give it an `id`, add a link in both the desktop nav and the mobile nav.
-The highlight picks it up with no further change.
+Adding a page: copy the header and the footer from another file. Add the link to the desktop
+nav and to the mobile nav in all six files.
 
 Type: Space Grotesk for display, Inter for body text, IBM Plex Mono for data.
 
@@ -76,31 +74,61 @@ words. Drop the two `hyphens` lines if you would rather have wide gaps than brok
 The pull quote in the first `#why` card stays ragged — stretching two lines of somebody's
 quotation reads as a mistake.
 
-## Five pages, and what each one is for
+## Six pages, and what each one is for
 
-The site was one page with ten sections. It became five pages on 2026-08-20, because the
-home page was carrying every topic at once and more were coming.
+The site was one page with ten sections. It became five pages on 2026-08-20. The home page
+carried every topic at once, and more topics were on the way. The state of each part moved
+to a sixth page on 2026-08-23. That page became `history.html` on the same day.
 
 | File | `h1` | Its job |
 |---|---|---|
-| `index.html` | The hand follows your own movement | **It routes.** One claim, the four statuses, three cards into the pages below, one CTA. It explains nothing |
+| `index.html` | The hand follows your own movement | **It moves the reader through six blocks.** The claim, the story, the proof that it runs, the offer, where to read more, and the contact. Each block is a teaser, and the page behind it carries the topic |
 | `control.html` | EMG control is a load the user carries all day | The method. The problem, the honest note, the control chain, the four facts, the calibration steps, and the video that proves it |
-| `kit.html` | The Deterica Kit | The product that ships first. The kit and the app, a real screenshot, the two purchase placeholders, and the videos of the hand |
+| `kit.html` | The Deterica Kit | The product that ships first. What the kit is for, the kit and the app, a real screenshot, the two coming-soon blocks, and the videos of the hand |
 | `story.html` | This did not begin as a business plan | The founder's reason, and the interview |
+| `history.html` | The first hand, and the one we build now | The line reads newest first, and it carries two entries: `2026 · now` and `Before 2026`. The 2026 entry holds the state of each of the four parts |
 | `contact.html` | Tell us we are wrong about something | The form, the details, and the FAQ |
 
-**The rules this follows.** A home page routes; it does not carry every topic. One page
-holds one search intent, which reads better and ranks better than ten topics on one URL.
-One primary call to action per page. A video sits beside the claim it proves, and not in a
-gallery of its own.
+### The home page is a funnel, not a directory
+
+The home page held three blocks. It ended on a card. It became six blocks on 2026-08-23.
+Before that change, a reader came to the end of the page and found only the legal footer.
+The page gave no next step. The order is:
+
+1. **Hero.** One claim. The first button goes to the proof below, and the second button
+   goes to the kit.
+2. **Why this exists.** The story, in the founder's words. It links to `story.html`.
+3. **This already runs.** The proof. Two videos of the hand that exists, and three
+   statements that another page can check. It ends with a note: the hand and the kit are
+   prototypes, and nothing here is for sale. Keep that note.
+4. **What we offer.** The app first, then the kit. The app is built, and it needs no
+   hardware. The kit is in development, and it comes last in the block. Do not change that
+   order. The app is not in the App Store yet, so the block must not say "download it".
+5. **Learn more.** Three doors, in rank order: the method, the history, then the story.
+6. **Contact.** The closing block. The form itself stays on `contact.html`.
+
+Keep this order. The reader doubts the method first, asks for the state second, and reads
+the story last.
+
+**The rules this follows.** A home page moves the reader forward. It does not explain a
+topic in full. Each block gives one reason to continue, and the page behind the block
+carries the topic. One page holds one search intent, which reads better and ranks better
+than ten topics on one URL. Each block on the home page holds one call to action. Every
+other page holds one call to action in total. A video sits beside the claim it proves, and
+not in a gallery of its own.
 
 **Every page carries exactly one `h1`.** Check that when you add a page.
 
+**The navigation starts with `Home`.** The brand mark also links to the home page. A word is
+easier to find than a logo, so keep both. The navigation holds five items: `Home`,
+`The control`, `The Kit`, `The story`, and `History`. `Contact` is the button, and not a
+navigation item.
+
 ### The cost of no build step
 
-There is no build step, so **the header and the footer are duplicated in all five files.**
-A change to either must be made five times. That is the price of a static site with no
-tooling, and at five pages it is the right trade.
+There is no build step, so **each of the six files holds its own copy of the header and the
+footer.** If you change one of them, change it in all six files. This is the price of a
+static site with no tooling. At six pages, the trade is correct.
 
 The navigation highlight is **not** a script any more. Each file writes `class="is-active"`
 on its own link. The scroll spy that did this on the single page was 59 lines; a class in
@@ -190,18 +218,22 @@ sips -Z 900 -s format jpeg -s formatOptions 70 /tmp/t.jpg --out assets/video-slu
 If `maxresdefault.jpg` returns 404, use `hqdefault.jpg`; `object-fit: cover` crops its 4:3
 frame to the 16:9 box.
 
-## The three placeholders
+## The site goes up before both releases
 
-Each one says on the page that it is a placeholder.
+The kit is not on sale, and the app is not in the App Store. The site publishes before
+either one. So it holds no store badge, no shop badge, and no QR code. Those all went out
+on 2026-08-23. A badge that leads nowhere is worse than no badge, and a QR code that scans
+to nothing is worse again.
 
-| Placeholder | Where | Replace with |
-|---|---|---|
-| Buy the kit | `#kit`, the first `.store-badge` | The shop link, when the kit goes on sale |
-| App Store badge | `#kit`, the second `.store-badge` | Apple's own badge artwork and the store link, from the Apple marketing guidelines |
-| QR code | `assets/qr-placeholder.svg` | A QR code of the store link. The file is a stand-in graphic and it scans to nothing |
+Two blocks carry the state, and both use `.download`:
 
-Both badges are `<button>` and not links, on purpose: a dead link is worse than a control
-that says it is not ready.
+| Block | Where | It says | Replace with |
+|---|---|---|---|
+| Get the app | `kit.html`, `#app` | Coming soon, and one address to write to | Apple's own badge artwork and the store link, from the Apple marketing guidelines |
+| Get the kit | `kit.html`, `#get` | Coming soon, and one address to write to | The shop link, on the day the kit goes on sale |
+
+Each block holds one `mailto:` link to `oleg@deterica.com`, with a subject that names what
+the reader waits for. Put a real badge in only on the day the real link exists.
 
 ## The app screenshot is real
 
@@ -228,7 +260,7 @@ the source of truth — so generating it is expected and harmless.
 
 ## The images
 
-The renders come from `myotriton-legacy/prototype-2018/photos/History/`. That repository is
+The images come from `myotriton-legacy/prototype-2018/photos/History/`. That repository is
 frozen: the files were copied out and resized, and nothing was written back.
 
 | File | Source | Used |
@@ -236,15 +268,14 @@ frozen: the files were copied out and resized, and nothing was written back.
 | `hand-hero.jpg` | `2018_02_01.jpg` | Hero |
 | `hand-controls.jpg` | `2018_01.133.jpg`, cropped | `#control` |
 | `app-screen.png` | The iOS Simulator | `#app` |
-| `qr-placeholder.svg` | Generated | `#kit` |
 | `hand-exploded.jpg`, `hand-dorsal.jpg`, `hand-profile.jpg`, `hand-palm.jpg`, `hand-cad.jpg` | The same archive | **Not used.** Kept because they are good and the sections that held them may come back |
 
-`hand-controls.jpg` is cropped because the original render has a USB cable plugged into the
+`hand-controls.jpg` is cropped because the original image has a USB cable plugged into the
 hand. **`sips` does not run its options in the order you write them** — a `-c` crop and a
 `-Z` resize in one command applies the resize first and the crop lands in the wrong place.
 Crop in one command, resize in a second.
 
-On a dark surface the renders use `mix-blend-mode: lighten`, so their black background
+On a dark surface the images use `mix-blend-mode: lighten`, so their black background
 disappears and the hand reads as a cut-out.
 
 **Every `<img>` needs `height: auto`.** The `width` and `height` attributes are
@@ -316,7 +347,8 @@ sections at zero opacity in the capture.
       brand the page carries. Note what that means: the root no longer serves the retail
       business, so nothing on the old listing-intelligence site is reachable there.
 - [ ] Settle the app's display name against this site — see the ⚠️ note above.
-- [ ] Fill the three placeholders as each becomes real.
+- [ ] Put a store badge and a QR code on `#app`, and a shop link on `#get`, as each
+      becomes real. Not before.
 - [ ] Make `og:image` an absolute URL. A relative path does not work in a link preview.
 - [ ] Confirm the company address against
       `myotriton-company/docs/company-identity.md` on the day you publish.
