@@ -563,11 +563,14 @@ section[id] { scroll-margin-top: 84px; }
 
 /* ---------- Forms ---------- */
 /* One form. It gets no more width than it reads well in. */
-.forms { margin-top: 3rem; max-width: 620px; }
+/* The contact page centres: the heading, the sub, the card, and the row of
+   direct details all sit on the middle of the page. The labels and the fields
+   inside the card stay left, because a form is read down one edge. */
+.forms { margin-top: 3rem; max-width: 620px; margin-inline: auto; }
 
 .form-card { background: var(--ink-2); border: 1px solid var(--ink-line); border-radius: var(--r-lg); padding: clamp(20px,2.6vw,30px); }
-.form-card h3 { margin: .3rem 0 .5rem; font-size: 1.3rem; font-weight: 600; color: var(--paper); }
-.form-card > p { margin: 0 0 1.4rem; color: var(--text-light); font-size: .96rem; }
+.form-card h3 { margin: .3rem 0 .5rem; font-size: 1.3rem; font-weight: 600; color: var(--paper); text-align: center; }
+.form-card > p { margin: 0 0 1.4rem; color: var(--text-light); font-size: .96rem; text-align: center; }
 .field { display: grid; gap: .35rem; margin-bottom: .95rem; }
 .field label { font-family: var(--ff-mono); font-size: .7rem; letter-spacing: .1em; text-transform: uppercase; color: var(--text-dim); }
 .field input, .field textarea, .field select {
@@ -579,11 +582,16 @@ section[id] { scroll-margin-top: 84px; }
 .field textarea { min-height: 108px; resize: vertical; }
 .field input::placeholder, .field textarea::placeholder { color: #5C6879; }
 .field select { appearance: none; background-image: linear-gradient(45deg, transparent 50%, var(--text-dim) 50%), linear-gradient(135deg, var(--text-dim) 50%, transparent 50%); background-position: calc(100% - 18px) 50%, calc(100% - 13px) 50%; background-size: 5px 5px, 5px 5px; background-repeat: no-repeat; }
-.form-foot { display: flex; flex-wrap: wrap; align-items: center; gap: .8rem; margin-top: 1.2rem; }
+/* A column, not a row: the layout is centred, and a button beside its note
+   centres the pair and leaves the button itself off the middle. The note is
+   also the live status line, so a long error wraps under the button instead of
+   pushing it sideways. */
+.form-foot { display: flex; flex-direction: column; align-items: center; gap: .8rem; margin-top: 1.2rem; }
+.form-foot .form-note { text-align: center; }
 .form-note { font-family: var(--ff-mono); font-size: .72rem; letter-spacing: .04em; color: var(--text-faint); margin: 0; }
 .form-note.ok { color: var(--accent-br); }
 
-.contact-direct { display: flex; flex-wrap: wrap; gap: 1rem 2.6rem; margin-top: 2.6rem; padding-top: 1.8rem; border-top: 1px solid var(--ink-line); }
+.contact-direct { display: flex; flex-wrap: wrap; justify-content: center; text-align: center; gap: 1rem 2.6rem; margin-top: 2.6rem; padding-top: 1.8rem; border-top: 1px solid var(--ink-line); }
 .contact-direct div p { margin: 0; }
 .contact-direct .k { font-family: var(--ff-mono); font-size: .7rem; letter-spacing: .12em; text-transform: uppercase; color: var(--text-faint); }
 .contact-direct .v { color: var(--paper); font-size: 1rem; }
