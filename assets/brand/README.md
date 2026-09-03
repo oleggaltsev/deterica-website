@@ -42,27 +42,37 @@ D, drawn as inline SVG, in the header, the footer, and the favicon of every page
 — 18 copies of one path. It is gone. The pack drives the identity now, from two
 files, and each one is referenced and not copied.
 
+On 2026-09-02 the tab icon stopped being the letter D. It is now a photograph:
+the studio render of the hand, the same model that the `assets/hand-*.jpg` files
+show. The four `favicon*`/`apple-touch-icon*` files of the D mark stay in this
+folder, unreferenced, so the change is one edit to undo.
+
 | File | Where | Size |
 |---|---|---|
 | `svg/wordmark-light.svg` | The header and the footer of every page | 20px tall in the header, 18px in the footer |
-| `favicon.svg` | The tab icon, in a browser that reads SVG | 32 x 32 |
-| `favicon-32.png` | The tab icon, in a browser that does not | 32 x 32 |
-| `apple-touch-icon.png` | The icon of a page saved to a home screen | 180 x 180 |
-| `mark.svg` | Nothing yet. The same letter with a smaller glyph, kept for a place that needs a square mark | 32 x 32 |
+| `hand-favicon-32.png` | The tab icon | 32 x 32 |
+| `hand-favicon-16.png` | The tab icon, at the smaller size | 16 x 16 |
+| `hand-apple-touch-icon.png` | The icon of a page saved to a home screen | 180 x 180 |
+| `hand-icon-512.png` | Nothing. The master the other three come from | 512 x 512 |
+| `favicon.svg`, `favicon-32.png`, `apple-touch-icon.png`, `mark.svg` | **No longer referenced.** The D mark, kept for the record | 32 and 180 |
 
 ### The icons
 
-Three files, and the order in the `<head>` matters. The PNG comes first, the SVG
-second with its `type`, and the apple icon last. A browser that reads SVG takes
-the SVG; one that does not falls back to the PNG.
+Three PNG files, and no SVG. The head of every page carries the 32, then the 16,
+then the apple icon, each with its `sizes`. The SVG line is gone: it pointed at
+the D mark, and a browser that reads SVG would have kept showing the letter.
 
-The glyph fills **22 of the 32 units, so 69 percent** of the box. The first
-version of the mark gave it 15 units, which is 47 percent, and at 16px the
-letter was too small to read. Do not go back to 47 percent.
+`hand-icon-512.png` is the master. The 16 came out of it with
+`sips -z 16 16`; the 32 and the 180 were supplied at their own sizes and are
+not downscales made here. None of the four carries an alpha channel.
 
-The PNG files are not drawn by hand. Chrome rasterises `favicon.svg` at 32 and
-at 180, with `--force-device-scale-factor=1`. Regenerate them whenever
-`favicon.svg` changes, or the tab and the SVG stop agreeing.
+⚠️ **A photograph does not hold up at 16px.** The render carries the finger
+segments, the knuckle shine and the wrist seam, and at 16 they blur into one
+warm patch. The mark is still legible as a pale shape on a pale ground, but it
+does not read as a hand. This was chosen with that known.
+
+The same render, at 1024, is the icon of the iOS app, in
+`myotriton-simulator/ios/App/Resources/Assets.xcassets/AppIcon.appiconset/icon-1024.png`.
 
 **Do not use the full lockup in the header.** The header gives 20px of height.
 The lockup is 1.44 to 1, so at that height it is 29 x 20 px and the word inside

@@ -311,10 +311,17 @@ section[id] { scroll-margin-top: 84px; }
 @media (max-width: 860px) { .grid-3, .grid-2 { grid-template-columns: 1fr; } }
 @media (max-width: 560px) { .grid-4 { grid-template-columns: 1fr; } }
 
+/* A column, so that a trailing link can be pushed to the bottom edge. Cards in
+   one grid row are already the same height; without this the links step up and
+   down with the length of the text above them. */
 .card {
   background: var(--paper-2); border: 1px solid var(--line);
   border-radius: var(--r); padding: 1.6rem 1.5rem;
+  display: flex; flex-direction: column;
 }
+/* The gap above the link is padding, not margin: `margin-top` is spent on the
+   `auto` that does the pushing. */
+.card .card-cta { margin-top: auto; padding-top: 1.1rem; }
 .card h3 { font-size: 1.12rem; margin: .2rem 0 .5rem; font-weight: 600; }
 /* Justified across the block, not flush left. `hyphens` needs the `lang` on
    <html>, and it earns its keep here: a card column is narrow, and without
