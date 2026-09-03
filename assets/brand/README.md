@@ -52,19 +52,33 @@ folder, unreferenced, so the change is one edit to undo.
 | `svg/wordmark-light.svg` | The header and the footer of every page | 20px tall in the header, 18px in the footer |
 | `hand-favicon-32.png` | The tab icon | 32 x 32 |
 | `hand-favicon-16.png` | The tab icon, at the smaller size | 16 x 16 |
-| `hand-apple-touch-icon.png` | The icon of a page saved to a home screen | 180 x 180 |
-| `hand-icon-512.png` | Nothing. The master the other three come from | 512 x 512 |
+| `hand-favicon-192.png` | The icon of a page saved to an Android home screen | 192 x 192 |
+| `hand-apple-touch-icon.png` | The icon of a page saved to an iOS home screen | 180 x 180 |
+| `hand-icon-512.png` | Nothing. The master the others come from | 512 x 512 |
 | `favicon.svg`, `favicon-32.png`, `apple-touch-icon.png`, `mark.svg` | **No longer referenced.** The D mark, kept for the record | 32 and 180 |
 
 ### The icons
 
-Three PNG files, and no SVG. The head of every page carries the 32, then the 16,
-then the apple icon, each with its `sizes`. The SVG line is gone: it pointed at
-the D mark, and a browser that reads SVG would have kept showing the letter.
+Four PNG files, and no SVG. The head of every page carries the 32, the 16 and
+the 192, each with its `sizes`, then the apple icon. The SVG line is gone: it
+pointed at the D mark, and a browser that reads SVG would have kept showing the
+letter.
 
 `hand-icon-512.png` is the master. The 16 came out of it with
-`sips -z 16 16`; the 32 and the 180 were supplied at their own sizes and are
-not downscales made here. None of the four carries an alpha channel.
+`sips -z 16 16`; the 32, the 192 and the 180 were supplied at their own sizes
+and are not downscales made here.
+
+The corners are rounded in the image itself, and the four corners are
+transparent. That is what makes the icon read on a dark tab bar as well as a
+light one: a square photograph would sit in the tab as a pale block.
+
+⚠️ **`hand-apple-touch-icon.png` is rounded too, and iOS rounds it again.** The
+system masks a home-screen icon with its own superellipse and fills any
+transparency with black, so the corners can carry a thin dark edge. Apple asks
+for a square, opaque image at this one size. The square version is in the
+history of this file, at the commit before the rounded set: recover it with
+`git show <commit>:assets/brand/hand-apple-touch-icon.png`. This was chosen
+knowing that.
 
 ⚠️ **A photograph does not hold up at 16px.** The render carries the finger
 segments, the knuckle shine and the wrist seam, and at 16 they blur into one
