@@ -1,0 +1,5 @@
+# deterica.com — every page here is public. Crawl all of it.
+User-agent: *
+Allow: /
+
+Sitemap: https://deterica.com/sitemap.xml
