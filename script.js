@@ -10,6 +10,23 @@
 
   var EMAIL = "oleg@deterica.com";
 
+  /* ---- Google Analytics ----
+     Every page loads this file, so the tag lives here and not in six heads.
+     GA_ID is the GA4 measurement ID, from Admin -> Data streams. Set it to
+     "" to switch the tag off: nothing is then sent and no cookie is set. */
+  var GA_ID = "G-C0G44DZLC5";
+  if (GA_ID) {
+    var gaTag = document.createElement("script");
+    gaTag.async = true;
+    gaTag.src = "https://www.googletagmanager.com/gtag/js?id=" + GA_ID;
+    document.head.appendChild(gaTag);
+
+    window.dataLayer = window.dataLayer || [];
+    window.gtag = function () { window.dataLayer.push(arguments); };
+    window.gtag("js", new Date());
+    window.gtag("config", GA_ID);
+  }
+
   /* ---- Year in the footer ---- */
   var yearEl = document.getElementById("year");
   if (yearEl) yearEl.textContent = new Date().getFullYear();
