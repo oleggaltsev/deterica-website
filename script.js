@@ -1,4 +1,4 @@
-/* DETERICA — Genesis site interactions.
+/* DETERICA — site interactions.
    No dependency, no build step.
 
    The two forms have no server. They compose a mailto: link and open the
@@ -211,5 +211,5 @@
     });
   }
 
-  wire("contact-form", "Genesis — enquiry from the website", "contact-status");
+  wire("contact-form", "Deterica — enquiry from the website", "contact-status");
 })();

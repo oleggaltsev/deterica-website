@@ -1,8 +1,8 @@
 # Deterica — the website
 
-The public site for **Genesis**, the prosthetic hand of **DETERICA LLC**: a control method
-that needs no electrodes, and the **Genesis Hand Kit** that carries that control while
-the hand is built.
+The public site for **DETERICA LLC**: a control method for a prosthetic hand that needs
+no electrodes, and the **Deterica Kit** that carries that control while the hand is
+built.
 
 ## The names
 
